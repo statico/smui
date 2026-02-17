@@ -60,8 +60,6 @@ import {
   AlertTriangle,
   XCircle,
   CheckCircle2,
-  Copy,
-  Search,
   Code2,
   Compass,
   Crosshair,
@@ -153,7 +151,7 @@ function Hero() {
             https://spacemolt.com/r/spacemolt-theme.json
           </code>
           <button className="text-xs text-muted-foreground bg-secondary border-l border-border px-3 py-[7px] uppercase tracking-wider hover:text-foreground transition-colors">
-            <Copy className="w-3.5 h-3.5" />
+            copy
           </button>
         </div>
       </div>
@@ -367,7 +365,21 @@ function BridgeSystems() {
                 {item.sub}
               </div>
             </div>
-            <Checkbox defaultChecked={item.on} />
+            <div
+              className={`relative w-9 h-[18px] rounded-full border shrink-0 cursor-pointer transition-all ${
+                item.on
+                  ? "bg-primary/10 border-primary"
+                  : "bg-background border-border"
+              }`}
+            >
+              <div
+                className={`absolute top-[2px] w-3 h-3 rounded-full transition-all ${
+                  item.on
+                    ? "left-5 bg-primary"
+                    : "left-[2px] bg-muted-foreground"
+                }`}
+              />
+            </div>
           </div>
         ))}
       </CardContent>
@@ -529,13 +541,18 @@ function CheckboxRadioPanel() {
         </label>
         <div className="space-y-2">
           {["Passive scan", "Active scan", "Deep scan"].map((mode, i) => (
-            <div key={mode} className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="scan"
-                defaultChecked={i === 0}
-                className="accent-[hsl(var(--primary))]"
-              />
+            <div key={mode} className="flex items-center gap-2 cursor-pointer">
+              <div
+                className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                  i === 0
+                    ? "border-primary"
+                    : "border-border bg-background"
+                }`}
+              >
+                {i === 0 && (
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                )}
+              </div>
               <span className="text-sm">{mode}</span>
             </div>
           ))}
@@ -562,11 +579,11 @@ function TextareaAvatarBreadcrumb() {
             <BreadcrumbItem>
               <BreadcrumbLink href="#">systems</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator>/</BreadcrumbSeparator>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">gamma draconis</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator>/</BreadcrumbSeparator>
             <BreadcrumbItem>
               <BreadcrumbPage>station helix</BreadcrumbPage>
             </BreadcrumbItem>
@@ -747,7 +764,7 @@ function CommandPalettePanel() {
       <CardContent className="p-3.5 pt-0 flex justify-center">
         <div className="bg-card border border-border max-w-[360px] w-full">
           <div className="flex items-center gap-2 px-3 py-2 border-b border-border">
-            <Search className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="text-[13px] text-muted-foreground">&gt;</span>
             <input
               type="text"
               placeholder="type a command..."
@@ -937,8 +954,163 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-2 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <CargoTable />
+      </section>
+
+      <div className="accent-line" />
+
+      <section className="py-14 px-6 max-w-[1200px] mx-auto">
+        <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
+          example // layout
+        </div>
+        <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+          bridge dashboard
+        </h2>
+        <p className="text-sm text-muted-foreground mb-7">
+          Sidebar navigation, data readouts, tables, charts combined.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2 mt-6">
+          {/* Sidebar */}
+          <div className="flex flex-col gap-2">
+            <Card className="card-glow">
+              <CardHeader className="flex flex-row items-center justify-between py-2.5 px-3.5">
+                <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                  iss erebus
+                </CardTitle>
+                <CardDescription className="text-xs flex items-center gap-1">
+                  <span className="inline-block w-[5px] h-[5px] rounded-full bg-[hsl(var(--smui-green))]" />
+                </CardDescription>
+              </CardHeader>
+              <div className="p-1">
+                <nav className="flex flex-col">
+                  {[
+                    { icon: "~", label: "overview", active: true },
+                    { icon: "*", label: "navigation", active: false },
+                    { icon: "x", label: "weapons", active: false },
+                    { icon: "=", label: "engineering", active: false },
+                    { icon: "#", label: "cargo hold", active: false },
+                    { icon: ">", label: "comms", active: false },
+                    { icon: "@", label: "crew", active: false },
+                    { icon: "%", label: "settings", active: false },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className={`flex items-center gap-2 text-[13px] py-[5px] px-2.5 cursor-pointer transition-all ${
+                        item.active
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                      }`}
+                    >
+                      <span className={`text-xs w-3.5 text-center ${item.active ? "opacity-100" : "opacity-50"}`}>
+                        {item.icon}
+                      </span>
+                      {item.label}
+                    </div>
+                  ))}
+                </nav>
+              </div>
+            </Card>
+            <Card className="card-glow">
+              <CardHeader className="py-2.5 px-3.5">
+                <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                  location
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-3.5 pt-0">
+                <div className="mb-2">
+                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">system</span>
+                  <div className="text-sm px-2 py-1.5 bg-background border border-border text-primary">GAMMA DRACONIS</div>
+                </div>
+                <div className="mb-2">
+                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">sector</span>
+                  <div className="text-sm px-2 py-1.5 bg-background border border-border">7-ALPHA</div>
+                </div>
+                <div>
+                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">coords</span>
+                  <div className="text-xs px-2 py-1.5 bg-background border border-border">X:4281 Y:-1892 Z:0042</div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Main content */}
+          <div className="flex flex-col gap-2">
+            {/* Stats row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <Card className="card-glow p-2.5 px-3">
+                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">total credits</span>
+                <div className="text-[26px] font-medium text-foreground tracking-tight">1,247,830</div>
+                <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">+23,450 this cycle</div>
+              </Card>
+              <Card className="card-glow p-2.5 px-3">
+                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">kills // losses</span>
+                <div className="text-[26px] font-medium text-foreground tracking-tight">142 / 7</div>
+                <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">k/d ratio: 20.3</div>
+              </Card>
+              <Card className="card-glow p-2.5 px-3">
+                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">systems charted</span>
+                <div className="text-[26px] font-medium text-foreground tracking-tight">89</div>
+                <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">+4 this cycle</div>
+              </Card>
+            </div>
+
+            {/* Bar chart */}
+            <Card className="card-glow">
+              <CardHeader className="flex flex-row items-center justify-between py-2.5 px-3.5">
+                <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                  resource yield // 12 cycles
+                </CardTitle>
+                <CardDescription className="text-xs">trend: positive</CardDescription>
+              </CardHeader>
+              <CardContent className="p-3.5 pt-0">
+                <div className="flex items-end gap-1 h-[100px]">
+                  {[45, 62, 38, 80, 55, 70, 48, 90, 65, 78, 52, 95].map((h, i) => (
+                    <div key={i} className="flex-1 flex flex-col items-center gap-[3px] h-full justify-end">
+                      <div
+                        className={`w-full ${[3, 6, 10].includes(i) ? "bg-[hsl(var(--smui-frost-4))]" : "bg-primary"} opacity-70`}
+                        style={{ height: `${h}%` }}
+                      />
+                      <span className="text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Cargo table */}
+            <CargoTable />
+
+            {/* Dialog */}
+            <Card className="card-glow">
+              <CardHeader className="py-2.5 px-3.5">
+                <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                  component // dialog
+                </CardTitle>
+              </CardHeader>
+              <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
+                <div className="bg-card border border-border w-full max-w-[300px]">
+                  <div className="p-2.5 px-3 border-b border-border">
+                    <div className="text-sm font-medium text-foreground uppercase tracking-wider">confirm jump</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">dest: nexus prime // est. 47 ticks</div>
+                  </div>
+                  <div className="p-3">
+                    <div className="mb-2">
+                      <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">auth code</span>
+                      <Input type="password" defaultValue="xxxxxxxxxxxx" />
+                    </div>
+                    <Alert className="border-[hsl(var(--smui-yellow)/0.25)] bg-[hsl(var(--smui-yellow)/0.04)] [&>svg]:text-[hsl(var(--smui-yellow))]">
+                      <AlertTriangle className="h-4 w-4" />
+                      <AlertDescription>Unpoliced territory. Proceed with caution.</AlertDescription>
+                    </Alert>
+                  </div>
+                  <div className="p-2 px-3 border-t border-border flex gap-1 justify-end">
+                    <Button variant="ghost" size="sm">abort</Button>
+                    <Button size="sm">initiate jump</Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
