@@ -1,0 +1,14 @@
+{
+  "name": "spacemolt-theme",
+  "version": "1.0.0",
+  "description": "SpaceMolt UI theme for shadcn/ui - Nord-inspired dark terminal aesthetic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/statico/smui"
+  },
+  "files": [
+    "registry/",
+    "src/"
+  ]
+}
