@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "smui",
+  "homepage": "https://smui.statico.io",
+  "items": [
+    {
+      "name": "spacemolt-theme",
+      "type": "registry:theme",
+      "title": "SpaceMolt Theme",
+      "description": "Nord-inspired terminal theme for shadcn/ui. Monospace typography, zero border radius, frost-blue accents on polar night surfaces."
+    }
+  ]
+}
