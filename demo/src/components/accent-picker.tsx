@@ -117,7 +117,7 @@ export function AccentPicker({
   }
 
   return (
-    <div className="flex items-center justify-center gap-1.5 py-2 px-5 bg-card border-b border-border text-xs text-muted-foreground tracking-widest uppercase">
+    <div className="sticky top-12 z-40 flex items-center justify-center gap-1.5 py-2 px-5 bg-card border-b border-border text-xs text-muted-foreground tracking-widest uppercase">
       <span>accent</span>
       {PRESETS.map((p) => (
         <button
