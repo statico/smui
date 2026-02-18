@@ -2,19 +2,19 @@
 
 A dark terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-inspired colors, JetBrains Mono everywhere, zero border radius. Spaceship terminals don't have light mode.
 
-![smui screenshot](https://statico-misc.s3.amazonaws.com/smui.png)
+![smui screenshot](https://smui.statico.io/screenshot.png)
 
 ## Install
 
 ```bash
-npx shadcn add https://smui.spacemolt.com/r/spacemolt-theme.json
+npx shadcn add https://smui.statico.io/r/spacemolt-theme.json
 ```
 
 Or copy the [CSS variables](src/globals.css) directly into your project.
 
 For full installation instructions, component examples, and the design guide, visit the website:
 
-**[smui.spacemolt.com](https://smui.spacemolt.com)**
+**[smui.statico.io](https://smui.statico.io)**
 
 ## What you get
 
@@ -34,7 +34,7 @@ For full installation instructions, component examples, and the design guide, vi
 AESTHETIC.md                       # Complete design system reference
 registry/spacemolt-theme.json      # shadcn registry theme (install with npx shadcn add)
 src/globals.css                    # Reference CSS with all variables
-demo/                              # Next.js demo app at smui.spacemolt.com
+demo/                              # Next.js demo app at smui.statico.io
 ```
 
 ## License

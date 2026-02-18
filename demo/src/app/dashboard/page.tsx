@@ -442,10 +442,10 @@ export default function DashboardPage() {
               github
             </a>
             <a
-              href="https://spacemolt.com"
+              href="https://smui.statico.io"
               className="hover:text-primary transition-colors"
             >
-              spacemolt.com
+              smui.statico.io
             </a>
           </div>
         </div>
