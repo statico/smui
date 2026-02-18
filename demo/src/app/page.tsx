@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AccentPicker } from "@/components/accent-picker";
 import { ShowSource } from "@/components/show-source";
 import { CopyBlock } from "@/components/copy-block";
+import { HighlightedCode } from "@/components/highlighted-code";
 import { highlight } from "@/lib/highlight";
 import { Button } from "@/components/ui/button";
 import {
@@ -486,6 +487,166 @@ const CODE_DASHBOARD = `{/* Stat card */}
 </div>`;
 
 // ============================================================
+// "WHAT YOU GET" CODE EXAMPLES
+// ============================================================
+
+const CODE_PALETTE = `:root {
+  /* Frost blues (Nord-inspired) */
+  --smui-frost-1: 176 25% 65%;   /* #8fbcbb - teal */
+  --smui-frost-2: 193 44% 67%;   /* #88c0d0 - primary frost blue */
+  --smui-frost-3: 210 34% 63%;   /* #81a1c1 - steel */
+  --smui-frost-4: 213 32% 52%;   /* #5e81ac - deep blue */
+
+  /* Aurora status colors */
+  --smui-red: 355 52% 64%;       /* #d4737c - error/danger */
+  --smui-orange: 14 51% 63%;     /* #d08770 - warning */
+  --smui-yellow: 40 71% 73%;     /* #ebcb8b - caution */
+  --smui-green: 92 28% 65%;      /* #a3be8c - success */
+  --smui-purple: 311 24% 63%;    /* #b48ead - info/special */
+}`;
+
+const CODE_SURFACES = `:root {
+  /* Surface hierarchy - four background depth levels */
+  --smui-surface-0: 213 16% 12%;   /* #1a1e24 - page background */
+  --smui-surface-1: 217 16% 15.5%; /* #21262e - cards, panels */
+  --smui-surface-2: 216 15% 19%;   /* #282e37 - elevated elements */
+  --smui-surface-3: 215 14% 22%;   /* #2f3640 - highlights, active */
+
+  /* Maps to shadcn variables */
+  --background: hsl(var(--smui-surface-0));
+  --card: hsl(var(--smui-surface-1));
+  --secondary: hsl(var(--smui-surface-2));
+}`;
+
+const CODE_RADIUS = `:root {
+  --radius: 0rem;
+}
+
+/* All shadcn radius variants compute to 0 */
+/* --radius-sm: calc(var(--radius) - 4px)  → 0 */
+/* --radius-md: calc(var(--radius) - 2px)  → 0 */
+/* --radius-lg: var(--radius)              → 0 */
+/* --radius-xl: calc(var(--radius) + 4px)  → 0 */
+
+/* Spaceship terminals have hard edges. */`;
+
+const CODE_TYPOGRAPHY = `import { JetBrains_Mono } from "next/font/google";
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+// Apply to body
+<body className={mono.className}>
+
+// Typography patterns:
+// Card title:  text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal
+// Field label: text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1
+// Big number:  text-[26px] font-medium text-foreground tracking-tight
+// Status text: text-[11px] text-muted-foreground tracking-wider`;
+
+const CODE_ACCENT_SWITCHING = `function applyAccent(hex: string) {
+  const hsl = hexToHSL(hex);
+  const root = document.documentElement;
+
+  // Update primary accent
+  root.style.setProperty("--primary", \`hsl(\${hsl})\`);
+  root.style.setProperty("--ring", \`hsl(\${hsl})\`);
+  root.style.setProperty("--accent-foreground", \`hsl(\${hsl})\`);
+  root.style.setProperty("--chart-1", \`hsl(\${hsl})\`);
+
+  // Update sidebar
+  root.style.setProperty("--sidebar-primary", \`hsl(\${hsl})\`);
+  root.style.setProperty("--sidebar-accent-foreground", \`hsl(\${hsl})\`);
+  root.style.setProperty("--sidebar-ring", \`hsl(\${hsl})\`);
+
+  // Darken for accent backgrounds
+  const dim = darkenForAccentBg(hex);
+  root.style.setProperty("--accent", \`hsl(\${dim})\`);
+  root.style.setProperty("--sidebar-accent", \`hsl(\${dim})\`);
+}`;
+
+const CODE_DARK_MODE = `/* Light and dark modes are identical.
+   Spaceship terminals don't have light mode. */
+
+:root {
+  --background: hsl(213 16% 12%);
+  --foreground: hsl(213 27% 88%);
+  --primary: hsl(193 44% 67%);
+  --card: hsl(217 16% 15.5%);
+  /* ... all other variables ... */
+}
+
+.dark {
+  --background: hsl(213 16% 12%);  /* identical */
+  --foreground: hsl(213 27% 88%);  /* identical */
+  --primary: hsl(193 44% 67%);     /* identical */
+  --card: hsl(217 16% 15.5%);      /* identical */
+  /* ... all other variables ... */
+}`;
+
+// ============================================================
+// INSTALLATION CODE STRINGS (for syntax highlighting)
+// ============================================================
+
+const INSTALL_FONT_CODE = `import { JetBrains_Mono } from "next/font/google";
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+export default function Layout({ children }) {
+  return (
+    <html lang="en">
+      <body className={mono.className}>{children}</body>
+    </html>
+  );
+}`;
+
+const INSTALL_PALETTE_CODE = `:root {
+  /* Frost blues */
+  --smui-frost-1: 176 25% 65%;
+  --smui-frost-2: 193 44% 67%;
+  --smui-frost-3: 210 34% 63%;
+  --smui-frost-4: 213 32% 52%;
+
+  /* Aurora status colors */
+  --smui-red: 355 52% 64%;
+  --smui-orange: 14 51% 63%;
+  --smui-yellow: 40 71% 73%;
+  --smui-green: 92 28% 65%;
+  --smui-purple: 311 24% 63%;
+
+  /* Surface hierarchy */
+  --smui-surface-0: 213 16% 12%;
+  --smui-surface-1: 217 16% 15.5%;
+  --smui-surface-2: 216 15% 19%;
+  --smui-surface-3: 215 14% 22%;
+
+  /* Interactive */
+  --smui-border-hover: 216 12% 37%;
+}`;
+
+const INSTALL_THEME_CODE = `@theme inline {
+  --color-smui-frost-1: hsl(var(--smui-frost-1));
+  --color-smui-frost-2: hsl(var(--smui-frost-2));
+  --color-smui-frost-3: hsl(var(--smui-frost-3));
+  --color-smui-frost-4: hsl(var(--smui-frost-4));
+  --color-smui-red: hsl(var(--smui-red));
+  --color-smui-orange: hsl(var(--smui-orange));
+  --color-smui-yellow: hsl(var(--smui-yellow));
+  --color-smui-green: hsl(var(--smui-green));
+  --color-smui-purple: hsl(var(--smui-purple));
+  --color-smui-surface-0: hsl(var(--smui-surface-0));
+  --color-smui-surface-1: hsl(var(--smui-surface-1));
+  --color-smui-surface-2: hsl(var(--smui-surface-2));
+  --color-smui-surface-3: hsl(var(--smui-surface-3));
+  --color-smui-border-hover: hsl(var(--smui-border-hover));
+}`;
+
+// ============================================================
 // DATA
 // ============================================================
 
@@ -666,7 +827,18 @@ function Hero() {
 // WHAT YOU GET
 // ============================================================
 
-function WhatYouGet() {
+function WhatYouGet({
+  hl,
+}: {
+  hl: {
+    palette: string;
+    surfaces: string;
+    radius: string;
+    typography: string;
+    accent: string;
+    darkMode: string;
+  };
+}) {
   return (
     <section className="py-14 px-6 max-w-[1200px] mx-auto">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
@@ -676,163 +848,180 @@ function WhatYouGet() {
         what you get
       </h2>
       <p className="text-sm text-muted-foreground mb-7">
-        One install command. Your entire shadcn/ui interface transforms.
+        One install command. Your entire shadcn/ui interface transforms. Click
+        any card to see the code.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {/* Color palette */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              nord-inspired palette
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-1 mb-2">
-              {PALETTE_SWATCHES.map((s) => (
-                <div
-                  key={s.name}
-                  className="flex-1 h-8 border border-border"
-                  style={{ backgroundColor: s.color }}
-                  title={`--smui-${s.name}`}
-                />
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              4 frost blues + 5 aurora status colors. All accessible as{" "}
-              <code className="text-primary">--smui-*</code> CSS variables.
-            </p>
-          </CardContent>
-        </Card>
+        <ShowSource code={CODE_PALETTE} html={hl.palette}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                nord-inspired palette
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex gap-1 mb-2">
+                {PALETTE_SWATCHES.map((s) => (
+                  <div
+                    key={s.name}
+                    className="flex-1 h-8 border border-border"
+                    style={{ backgroundColor: s.color }}
+                    title={`--smui-${s.name}`}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                4 frost blues + 5 aurora status colors. All accessible as{" "}
+                <code className="text-primary">--smui-*</code> CSS variables.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
 
         {/* Surface hierarchy */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              surface hierarchy
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-1 mb-2">
-              {SURFACE_LEVELS.map((s) => (
-                <div key={s.name} className="flex-1 flex flex-col items-center">
+        <ShowSource code={CODE_SURFACES} html={hl.surfaces}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                surface hierarchy
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex gap-1 mb-2">
+                {SURFACE_LEVELS.map((s) => (
                   <div
-                    className="w-full h-8 border border-border"
-                    style={{ backgroundColor: s.color }}
-                  />
-                  <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-wider">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Four depth levels from{" "}
-              <code className="text-primary">surface-0</code> to{" "}
-              <code className="text-primary">surface-3</code>.
-            </p>
-          </CardContent>
-        </Card>
+                    key={s.name}
+                    className="flex-1 flex flex-col items-center"
+                  >
+                    <div
+                      className="w-full h-8 border border-border"
+                      style={{ backgroundColor: s.color }}
+                    />
+                    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-wider">
+                      {s.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Four depth levels from{" "}
+                <code className="text-primary">surface-0</code> to{" "}
+                <code className="text-primary">surface-3</code>.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
 
         {/* Sharp edges */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              sharp edges
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-3 items-center mb-2">
-              <div className="flex-1">
-                <div className="border border-primary bg-primary/10 px-3 py-2 text-xs text-primary text-center">
-                  radius: 0rem
+        <ShowSource code={CODE_RADIUS} html={hl.radius}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                sharp edges
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex gap-3 items-center mb-2">
+                <div className="flex-1">
+                  <div className="border border-primary bg-primary/10 px-3 py-2 text-xs text-primary text-center">
+                    radius: 0rem
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="border border-border rounded-lg bg-secondary px-3 py-2 text-xs text-muted-foreground text-center line-through">
+                    rounded
+                  </div>
                 </div>
               </div>
-              <div className="flex-1">
-                <div className="border border-border rounded-lg bg-secondary px-3 py-2 text-xs text-muted-foreground text-center line-through">
-                  rounded
-                </div>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              <code className="text-primary">--radius: 0rem</code> globally.
-              Spaceship terminals have hard edges.
-            </p>
-          </CardContent>
-        </Card>
+              <p className="text-xs text-muted-foreground">
+                <code className="text-primary">--radius: 0rem</code> globally.
+                Spaceship terminals have hard edges.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
 
         {/* Monospace */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              monospace typography
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="mb-2 space-y-1">
-              <div className="text-sm text-foreground">
-                JetBrains Mono 400
+        <ShowSource code={CODE_TYPOGRAPHY} html={hl.typography}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                monospace typography
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-2 space-y-1">
+                <div className="text-sm text-foreground">
+                  JetBrains Mono 400
+                </div>
+                <div className="text-sm text-foreground font-semibold">
+                  JetBrains Mono 600
+                </div>
+                <div className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase">
+                  uppercase tracking-[1.5px]
+                </div>
               </div>
-              <div className="text-sm text-foreground font-semibold">
-                JetBrains Mono 600
-              </div>
-              <div className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase">
-                uppercase tracking-[1.5px]
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Monospace everywhere. Labels use uppercase with wide letter-spacing.
-            </p>
-          </CardContent>
-        </Card>
+              <p className="text-xs text-muted-foreground">
+                Monospace everywhere. Labels use uppercase with wide
+                letter-spacing.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
 
         {/* Accent switching */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              runtime accent switching
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-1 mb-2">
-              {PALETTE_SWATCHES.map((s) => (
-                <div
-                  key={s.name}
-                  className="w-5 h-5 border border-border"
-                  style={{ backgroundColor: s.color }}
-                />
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              HSL-based variables enable runtime accent color switching. Try the
-              picker above.
-            </p>
-          </CardContent>
-        </Card>
+        <ShowSource code={CODE_ACCENT_SWITCHING} html={hl.accent}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                runtime accent switching
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex gap-1 mb-2">
+                {PALETTE_SWATCHES.map((s) => (
+                  <div
+                    key={s.name}
+                    className="w-5 h-5 border border-border"
+                    style={{ backgroundColor: s.color }}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                HSL-based variables enable runtime accent color switching. Try
+                the picker above.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
 
         {/* Dark only */}
-        <Card className="card-glow">
-          <CardHeader className="py-2.5 px-3.5">
-            <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-              dark mode only
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
-                :root
+        <ShowSource code={CODE_DARK_MODE} html={hl.darkMode}>
+          <Card className="card-glow">
+            <CardHeader className="py-2.5 px-3.5">
+              <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
+                dark mode only
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                  :root
+                </div>
+                <span className="text-xs text-muted-foreground">=</span>
+                <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                  .dark
+                </div>
               </div>
-              <span className="text-xs text-muted-foreground">=</span>
-              <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
-                .dark
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Light and dark modes are identical. Spaceship terminals don&apos;t
-              have light mode.
-            </p>
-          </CardContent>
-        </Card>
+              <p className="text-xs text-muted-foreground">
+                Light and dark modes are identical. Spaceship terminals
+                don&apos;t have light mode.
+              </p>
+            </CardContent>
+          </Card>
+        </ShowSource>
       </div>
     </section>
   );
@@ -1556,7 +1745,7 @@ function CargoTable() {
 // INSTALLATION GUIDE
 // ============================================================
 
-function Installation() {
+async function Installation() {
   return (
     <section className="py-14 px-6 max-w-[800px] mx-auto">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
@@ -1606,25 +1795,8 @@ function Installation() {
             The theme sets <code className="text-primary">font-sans</code> to
             JetBrains Mono. Load it in your layout:
           </p>
-          <div className="ml-8 bg-card border border-border p-3 text-[12px] leading-relaxed text-muted-foreground overflow-x-auto">
-            <pre>
-              <code>
-{`import { JetBrains_Mono } from "next/font/google";
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-export default function Layout({ children }) {
-  return (
-    <html lang="en">
-      <body className={mono.className}>{children}</body>
-    </html>
-  );
-}`}
-              </code>
-            </pre>
+          <div className="ml-8">
+            <HighlightedCode code={INSTALL_FONT_CODE} />
           </div>
         </div>
 
@@ -1644,60 +1816,15 @@ export default function Layout({ children }) {
             hierarchy), add these to your{" "}
             <code className="text-primary">globals.css</code>:
           </p>
-          <div className="ml-8 bg-card border border-border p-3 text-[12px] leading-relaxed text-muted-foreground overflow-x-auto">
-            <pre>
-              <code>
-{`:root {
-  /* Frost blues */
-  --smui-frost-1: 176 25% 65%;
-  --smui-frost-2: 193 44% 67%;
-  --smui-frost-3: 210 34% 63%;
-  --smui-frost-4: 213 32% 52%;
-
-  /* Aurora status colors */
-  --smui-red: 355 52% 64%;
-  --smui-orange: 14 51% 63%;
-  --smui-yellow: 40 71% 73%;
-  --smui-green: 92 28% 65%;
-  --smui-purple: 311 24% 63%;
-
-  /* Surface hierarchy */
-  --smui-surface-0: 213 16% 12%;
-  --smui-surface-1: 217 16% 15.5%;
-  --smui-surface-2: 216 15% 19%;
-  --smui-surface-3: 215 14% 22%;
-
-  /* Interactive */
-  --smui-border-hover: 216 12% 37%;
-}`}
-              </code>
-            </pre>
+          <div className="ml-8">
+            <HighlightedCode code={INSTALL_PALETTE_CODE} lang="css" />
           </div>
           <p className="text-xs text-muted-foreground mt-2 ml-8">
             Then register them in your Tailwind{" "}
             <code className="text-primary">@theme</code> block:
           </p>
-          <div className="ml-8 mt-2 bg-card border border-border p-3 text-[12px] leading-relaxed text-muted-foreground overflow-x-auto">
-            <pre>
-              <code>
-{`@theme inline {
-  --color-smui-frost-1: hsl(var(--smui-frost-1));
-  --color-smui-frost-2: hsl(var(--smui-frost-2));
-  --color-smui-frost-3: hsl(var(--smui-frost-3));
-  --color-smui-frost-4: hsl(var(--smui-frost-4));
-  --color-smui-red: hsl(var(--smui-red));
-  --color-smui-orange: hsl(var(--smui-orange));
-  --color-smui-yellow: hsl(var(--smui-yellow));
-  --color-smui-green: hsl(var(--smui-green));
-  --color-smui-purple: hsl(var(--smui-purple));
-  --color-smui-surface-0: hsl(var(--smui-surface-0));
-  --color-smui-surface-1: hsl(var(--smui-surface-1));
-  --color-smui-surface-2: hsl(var(--smui-surface-2));
-  --color-smui-surface-3: hsl(var(--smui-surface-3));
-  --color-smui-border-hover: hsl(var(--smui-border-hover));
-}`}
-              </code>
-            </pre>
+          <div className="ml-8 mt-2">
+            <HighlightedCode code={INSTALL_THEME_CODE} lang="css" />
           </div>
         </div>
       </div>
@@ -1946,6 +2073,12 @@ export default async function Home() {
     hlCommandPalette,
     hlCargoTable,
     hlDashboard,
+    hlPalette,
+    hlSurfaces,
+    hlRadius,
+    hlTypography,
+    hlAccentSwitching,
+    hlDarkMode,
   ] = await Promise.all([
     highlight(CODE_VESSEL_CONFIG),
     highlight(CODE_CREW_ROSTER),
@@ -1961,6 +2094,12 @@ export default async function Home() {
     highlight(CODE_COMMAND_PALETTE),
     highlight(CODE_CARGO_TABLE),
     highlight(CODE_DASHBOARD),
+    highlight(CODE_PALETTE, "css"),
+    highlight(CODE_SURFACES, "css"),
+    highlight(CODE_RADIUS, "css"),
+    highlight(CODE_TYPOGRAPHY),
+    highlight(CODE_ACCENT_SWITCHING),
+    highlight(CODE_DARK_MODE, "css"),
   ]);
 
   return (
@@ -1970,7 +2109,16 @@ export default async function Home() {
       <Hero />
 
       <hr className="border-none h-px bg-border m-0" />
-      <WhatYouGet />
+      <WhatYouGet
+            hl={{
+              palette: hlPalette,
+              surfaces: hlSurfaces,
+              radius: hlRadius,
+              typography: hlTypography,
+              accent: hlAccentSwitching,
+              darkMode: hlDarkMode,
+            }}
+          />
 
       <hr className="border-none h-px bg-border m-0" />
 
@@ -1983,11 +2131,8 @@ export default async function Home() {
           component showcase
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
-          Standard shadcn/ui components styled with the smui theme. Click{" "}
-          <span className="text-primary uppercase text-[11px] tracking-wider">
-            source
-          </span>{" "}
-          on any card to see the code.
+          Standard shadcn/ui components styled with the smui theme. Click any
+          card to view its source code.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -2045,11 +2190,7 @@ export default async function Home() {
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
           A full layout example combining sidebar navigation, stat cards, charts,
-          tables, and dialogs. Click{" "}
-          <span className="text-primary uppercase text-[11px] tracking-wider">
-            source
-          </span>{" "}
-          to see the patterns used.
+          tables, and dialogs. Click anywhere on it to view the source.
         </p>
 
         <ShowSource code={CODE_DASHBOARD} html={hlDashboard}>
