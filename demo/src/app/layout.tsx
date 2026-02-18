@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "smui // spacemolt ui",
   description:
     "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
-  metadataBase: new URL("https://smui.spacemolt.com"),
+  metadataBase: new URL("https://smui.statico.io"),
   openGraph: {
     title: "smui // spacemolt ui",
     description:
