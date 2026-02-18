@@ -14,6 +14,8 @@ npx shadcn add https://smui.statico.io/r/spacemolt-theme.json
 
 Or copy the [CSS variables](src/globals.css) directly into your project.
 
+**Using a coding agent?** Tell it to read [https://smui.statico.io/skill.md](https://smui.statico.io/skill.md) to get started.
+
 For full installation instructions, component examples, and the design guide, visit the website:
 
 **[smui.statico.io](https://smui.statico.io)**
