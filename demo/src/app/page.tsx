@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AccentPicker } from "@/components/accent-picker";
 import { ShowSource } from "@/components/show-source";
 import { CopyBlock } from "@/components/copy-block";
+import { highlight } from "@/lib/highlight";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -1928,7 +1929,40 @@ function DesignGuide() {
 // PAGE
 // ============================================================
 
-export default function Home() {
+export default async function Home() {
+  // Highlight all code examples at build time with shiki Nord theme
+  const [
+    hlVesselConfig,
+    hlCrewRoster,
+    hlSystemReadouts,
+    hlBridgeSystems,
+    hlCommsLog,
+    hlWeaponLoadout,
+    hlCheckboxRadio,
+    hlTextareaAvatar,
+    hlSkeleton,
+    hlPagination,
+    hlAccordion,
+    hlCommandPalette,
+    hlCargoTable,
+    hlDashboard,
+  ] = await Promise.all([
+    highlight(CODE_VESSEL_CONFIG),
+    highlight(CODE_CREW_ROSTER),
+    highlight(CODE_SYSTEM_READOUTS),
+    highlight(CODE_BRIDGE_SYSTEMS),
+    highlight(CODE_COMMS_LOG),
+    highlight(CODE_WEAPON_LOADOUT),
+    highlight(CODE_CHECKBOX_RADIO),
+    highlight(CODE_TEXTAREA_AVATAR),
+    highlight(CODE_SKELETON),
+    highlight(CODE_PAGINATION),
+    highlight(CODE_ACCORDION),
+    highlight(CODE_COMMAND_PALETTE),
+    highlight(CODE_CARGO_TABLE),
+    highlight(CODE_DASHBOARD),
+  ]);
+
   return (
     <main>
       <Nav />
@@ -1949,52 +1983,51 @@ export default function Home() {
           component showcase
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
-          Standard shadcn/ui components styled with the smui theme. Hover any
-          card and click{" "}
+          Standard shadcn/ui components styled with the smui theme. Click{" "}
           <span className="text-primary uppercase text-[11px] tracking-wider">
             source
           </span>{" "}
-          to see the code.
+          on any card to see the code.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          <ShowSource code={CODE_VESSEL_CONFIG}>
+          <ShowSource code={CODE_VESSEL_CONFIG} html={hlVesselConfig}>
             <VesselConfig />
           </ShowSource>
-          <ShowSource code={CODE_CREW_ROSTER}>
+          <ShowSource code={CODE_CREW_ROSTER} html={hlCrewRoster}>
             <CrewRoster />
           </ShowSource>
-          <ShowSource code={CODE_SYSTEM_READOUTS}>
+          <ShowSource code={CODE_SYSTEM_READOUTS} html={hlSystemReadouts}>
             <SystemReadouts />
           </ShowSource>
-          <ShowSource code={CODE_BRIDGE_SYSTEMS}>
+          <ShowSource code={CODE_BRIDGE_SYSTEMS} html={hlBridgeSystems}>
             <BridgeSystems />
           </ShowSource>
-          <ShowSource code={CODE_COMMS_LOG}>
+          <ShowSource code={CODE_COMMS_LOG} html={hlCommsLog}>
             <CommsLog />
           </ShowSource>
-          <ShowSource code={CODE_WEAPON_LOADOUT}>
+          <ShowSource code={CODE_WEAPON_LOADOUT} html={hlWeaponLoadout}>
             <WeaponLoadout />
           </ShowSource>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
-          <ShowSource code={CODE_CHECKBOX_RADIO}>
+          <ShowSource code={CODE_CHECKBOX_RADIO} html={hlCheckboxRadio}>
             <CheckboxRadioPanel />
           </ShowSource>
-          <ShowSource code={CODE_TEXTAREA_AVATAR}>
+          <ShowSource code={CODE_TEXTAREA_AVATAR} html={hlTextareaAvatar}>
             <TextareaAvatarBreadcrumb />
           </ShowSource>
-          <ShowSource code={CODE_SKELETON}>
+          <ShowSource code={CODE_SKELETON} html={hlSkeleton}>
             <SkeletonSeparator />
           </ShowSource>
-          <ShowSource code={CODE_PAGINATION}>
+          <ShowSource code={CODE_PAGINATION} html={hlPagination}>
             <PaginationPanel />
           </ShowSource>
-          <ShowSource code={CODE_ACCORDION}>
+          <ShowSource code={CODE_ACCORDION} html={hlAccordion}>
             <AccordionPanel />
           </ShowSource>
-          <ShowSource code={CODE_COMMAND_PALETTE}>
+          <ShowSource code={CODE_COMMAND_PALETTE} html={hlCommandPalette}>
             <CommandPalettePanel />
           </ShowSource>
         </div>
@@ -2012,14 +2045,14 @@ export default function Home() {
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
           A full layout example combining sidebar navigation, stat cards, charts,
-          tables, and dialogs. Hover and click{" "}
+          tables, and dialogs. Click{" "}
           <span className="text-primary uppercase text-[11px] tracking-wider">
             source
           </span>{" "}
           to see the patterns used.
         </p>
 
-        <ShowSource code={CODE_DASHBOARD}>
+        <ShowSource code={CODE_DASHBOARD} html={hlDashboard}>
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2">
             {/* Sidebar */}
             <div className="flex flex-col gap-2">
@@ -2170,7 +2203,7 @@ export default function Home() {
               </Card>
 
               {/* Cargo table */}
-              <ShowSource code={CODE_CARGO_TABLE}>
+              <ShowSource code={CODE_CARGO_TABLE} html={hlCargoTable}>
                 <CargoTable />
               </ShowSource>
 
