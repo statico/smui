@@ -8,19 +8,19 @@
   --card-foreground: 220 16% 22%;
   --popover: 218 27% 92%;
   --popover-foreground: 220 16% 22%;
-  --primary: 213 32% 52%;
+  --primary: 213 32% 44%;
   --primary-foreground: 0 0% 100%;
   --secondary: 219 28% 88%;
   --secondary-foreground: 220 16% 22%;
   --muted: 219 28% 88%;
-  --muted-foreground: 220 17% 36%;
+  --muted-foreground: 220 17% 33%;
   --accent: 213 20% 90%;
-  --accent-foreground: 213 32% 52%;
+  --accent-foreground: 213 32% 44%;
   --destructive: 355 60% 48%;
   --destructive-foreground: 0 0% 100%;
   --border: 219 18% 80%;
   --input: 219 18% 80%;
-  --ring: 213 32% 52%;
+  --ring: 213 32% 44%;
   --radius: 0rem;
 
   /* Chart colors */
@@ -33,12 +33,12 @@
   /* Sidebar */
   --sidebar-background: 218 27% 92%;
   --sidebar-foreground: 220 16% 22%;
-  --sidebar-primary: 213 32% 52%;
+  --sidebar-primary: 213 32% 44%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 213 20% 90%;
-  --sidebar-accent-foreground: 213 32% 52%;
+  --sidebar-accent-foreground: 213 32% 44%;
   --sidebar-border: 219 18% 80%;
-  --sidebar-ring: 213 32% 52%;
+  --sidebar-ring: 213 32% 44%;
 
   /* ---- SpaceMolt extended palette ---- */
 
@@ -91,7 +91,7 @@
   --muted-foreground: 213 14% 65%;
   --accent: 193 10% 16%;
   --accent-foreground: 193 44% 67%;
-  --destructive: 355 52% 64%;
+  --destructive: 355 52% 65%;
   --destructive-foreground: 219 28% 94%;
   --border: 217 17% 28%;
   --input: 217 17% 28%;
