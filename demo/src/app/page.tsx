@@ -60,7 +60,6 @@ import {
   AlertTriangle,
   XCircle,
   CheckCircle2,
-  Code2,
   Compass,
   Crosshair,
   Package,
@@ -86,10 +85,22 @@ function Nav() {
           components
         </Link>
         <Link
-          href="/dashboard"
+          href="/"
           className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
         >
-          dashboard
+          blocks
+        </Link>
+        <Link
+          href="/"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          charts
+        </Link>
+        <Link
+          href="/"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          systems
         </Link>
       </div>
       <div className="flex items-center gap-1">
@@ -99,10 +110,10 @@ function Nav() {
             ctrl+k
           </kbd>
         </div>
-        <button className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-[hsl(var(--smui-border-hover))] transition-colors">
-          <Code2 className="w-3.5 h-3.5" />
+        <button className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground text-[13px] hover:text-foreground hover:border-[hsl(var(--smui-border-hover))] transition-colors">
+          &lt;/&gt;
         </button>
-        <span className="text-xs text-muted-foreground ml-1">v1.0.0</span>
+        <span className="text-xs text-muted-foreground ml-1">v2.1.7</span>
       </div>
     </nav>
   );
@@ -110,50 +121,29 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden scanlines scan-line noise">
-      <div className="grid-bg-subtle py-20 px-6 text-center relative z-10">
-        {/* Radial glow behind heading */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse,hsl(193_44%_67%/0.06),transparent_70%)] pointer-events-none" />
-
-        <div
-          className="text-xs text-muted-foreground tracking-[2px] uppercase mb-4 animate-fade-in-up"
-          style={{ animationDelay: "0.1s" }}
-        >
-          spacemolt interface components
-        </div>
-        <h1
-          className="text-[34px] font-medium text-foreground leading-tight max-w-[560px] mx-auto mb-4 tracking-tight animate-fade-in-up"
-          style={{ animationDelay: "0.2s" }}
-        >
-          the foundation for your{" "}
-          <em className="not-italic text-primary">bridge interface</em>
-        </h1>
-        <p
-          className="text-[15px] text-muted-foreground max-w-[480px] mx-auto mb-7 leading-relaxed animate-fade-in-up"
-          style={{ animationDelay: "0.3s" }}
-        >
-          Hardened UI components for starship terminals, command consoles, and
-          deep-space operations. Customize. Extend. Deploy. Open source.
-        </p>
-        <div
-          className="flex gap-2 justify-center flex-wrap animate-fade-in-up"
-          style={{ animationDelay: "0.4s" }}
-        >
-          <Button className="glow-pulse">get started</Button>
-          <Button variant="outline">components</Button>
-        </div>
-        <div
-          className="install-box flex items-center max-w-[480px] mx-auto mt-5 border border-border bg-card animate-fade-in-up"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <code className="flex-1 px-3 py-[7px] text-sm text-muted-foreground">
-            <span className="text-primary">$</span> npx shadcn add
-            https://spacemolt.com/r/spacemolt-theme.json
-          </code>
-          <button className="text-xs text-muted-foreground bg-secondary border-l border-border px-3 py-[7px] uppercase tracking-wider hover:text-foreground transition-colors">
-            copy
-          </button>
-        </div>
+    <section className="pt-[72px] pb-14 px-6 text-center">
+      <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-4">
+        spacemolt interface components
+      </div>
+      <h1 className="text-[34px] font-medium text-foreground leading-[1.3] max-w-[560px] mx-auto mb-4 tracking-tight">
+        the foundation for your{" "}
+        <em className="not-italic text-primary">bridge interface</em>
+      </h1>
+      <p className="text-[15px] text-muted-foreground max-w-[480px] mx-auto mb-7 leading-relaxed">
+        Hardened UI components for starship terminals, command consoles, and
+        deep-space operations. Customize. Extend. Deploy. Open source.
+      </p>
+      <div className="flex gap-2 justify-center flex-wrap">
+        <Button>get started</Button>
+        <Button variant="outline">components</Button>
+      </div>
+      <div className="flex items-center max-w-[380px] mx-auto mt-5 border border-border bg-card">
+        <code className="flex-1 px-3 py-[7px] text-sm text-muted-foreground">
+          <span className="text-primary font-normal">$</span> npx smui@latest init
+        </code>
+        <button className="text-xs text-muted-foreground bg-secondary border-l border-border px-3 py-[7px] uppercase tracking-wider hover:text-foreground transition-colors">
+          copy
+        </button>
       </div>
     </section>
   );
@@ -397,31 +387,33 @@ function CommsLog() {
         <CardDescription className="text-xs">4 alerts</CardDescription>
       </CardHeader>
       <CardContent className="p-3.5 pt-0 space-y-1.5">
-        <Alert>
-          <Info className="h-4 w-4" />
-          <AlertTitle>System Update</AlertTitle>
-          <AlertDescription>Nav firmware v3.2.1 ready</AlertDescription>
+        <Alert className="border-[hsl(var(--smui-frost-2)/0.25)] bg-[hsl(var(--smui-frost-2)/0.04)] [&>svg]:text-[hsl(var(--smui-frost-2))]">
+          <Info className="h-3.5 w-3.5" />
+          <div>
+            <AlertTitle className="text-[hsl(var(--smui-frost-2))]">System Update</AlertTitle>
+            <AlertDescription>Nav firmware v3.2.1 ready</AlertDescription>
+          </div>
         </Alert>
         <Alert className="border-[hsl(var(--smui-yellow)/0.25)] bg-[hsl(var(--smui-yellow)/0.04)] [&>svg]:text-[hsl(var(--smui-yellow))]">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertTitle className="text-[hsl(var(--smui-yellow))]">
-            Shield Degradation
-          </AlertTitle>
-          <AlertDescription>Port shields at 71%</AlertDescription>
+          <AlertTriangle className="h-3.5 w-3.5" />
+          <div>
+            <AlertTitle className="text-[hsl(var(--smui-yellow))]">Shield Degradation</AlertTitle>
+            <AlertDescription>Port shields at 71%</AlertDescription>
+          </div>
         </Alert>
         <Alert variant="destructive">
-          <XCircle className="h-4 w-4" />
-          <AlertTitle>Reactor Warning</AlertTitle>
-          <AlertDescription>Core temp +12% above nominal</AlertDescription>
+          <XCircle className="h-3.5 w-3.5" />
+          <div>
+            <AlertTitle>Reactor Warning</AlertTitle>
+            <AlertDescription>Core temp +12% above nominal</AlertDescription>
+          </div>
         </Alert>
         <Alert className="border-[hsl(var(--smui-green)/0.25)] bg-[hsl(var(--smui-green)/0.04)] [&>svg]:text-[hsl(var(--smui-green))]">
-          <CheckCircle2 className="h-4 w-4" />
-          <AlertTitle className="text-[hsl(var(--smui-green))]">
-            Dock Confirmed
-          </AlertTitle>
-          <AlertDescription>
-            Bay 7 clearance at Station Helix
-          </AlertDescription>
+          <CheckCircle2 className="h-3.5 w-3.5" />
+          <div>
+            <AlertTitle className="text-[hsl(var(--smui-green))]">Dock Confirmed</AlertTitle>
+            <AlertDescription>Bay 7 clearance at Station Helix</AlertDescription>
+          </div>
         </Alert>
       </CardContent>
     </Card>
@@ -468,7 +460,7 @@ function WeaponLoadout() {
             cycle status
           </label>
           <Tabs defaultValue="loaded">
-            <TabsList>
+            <TabsList variant="line">
               <TabsTrigger value="loaded">loaded</TabsTrigger>
               <TabsTrigger value="charging">charging</TabsTrigger>
               <TabsTrigger value="cooldown">cooldown</TabsTrigger>
@@ -924,7 +916,7 @@ export default function Home() {
       <Nav />
       <AccentPicker />
       <Hero />
-      <div className="accent-line" />
+      <hr className="border-none h-px bg-border m-0" />
 
       <section className="py-14 px-6 max-w-[1200px] mx-auto">
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
@@ -956,7 +948,7 @@ export default function Home() {
 
       </section>
 
-      <div className="accent-line" />
+      <hr className="border-none h-px bg-border m-0" />
 
       <section className="py-14 px-6 max-w-[1200px] mx-auto">
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
@@ -1099,8 +1091,8 @@ export default function Home() {
                       <Input type="password" defaultValue="xxxxxxxxxxxx" />
                     </div>
                     <Alert className="border-[hsl(var(--smui-yellow)/0.25)] bg-[hsl(var(--smui-yellow)/0.04)] [&>svg]:text-[hsl(var(--smui-yellow))]">
-                      <AlertTriangle className="h-4 w-4" />
-                      <AlertDescription>Unpoliced territory. Proceed with caution.</AlertDescription>
+                      <AlertTriangle className="h-3.5 w-3.5" />
+                      <div><AlertDescription>Unpoliced territory. Proceed with caution.</AlertDescription></div>
                     </Alert>
                   </div>
                   <div className="p-2 px-3 border-t border-border flex gap-1 justify-end">
@@ -1114,7 +1106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="accent-line" />
+      <hr className="border-none h-px bg-border m-0" />
 
       <section className="py-14 px-6 max-w-[1200px] mx-auto">
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
@@ -1124,63 +1116,65 @@ export default function Home() {
           deploy to your terminal
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
-          One command to install the SpaceMolt theme into any shadcn/ui project.
+          Zero dependencies beyond the standard runtime.
         </p>
-        <div className="install-box bg-background border border-border p-4 text-[13px] leading-relaxed overflow-x-auto relative">
-          <div className="absolute top-3 right-3 flex gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[hsl(var(--smui-red)/0.5)]" />
-            <span className="w-2 h-2 rounded-full bg-[hsl(var(--smui-yellow)/0.5)]" />
-            <span className="w-2 h-2 rounded-full bg-[hsl(var(--smui-green)/0.5)]" />
-          </div>
-          <span className="text-muted-foreground/60 italic">
-            {"// Install the SpaceMolt theme"}
-          </span>
+        <div className="bg-background border border-border p-3 text-[13px] leading-relaxed overflow-x-auto">
+          <span className="text-muted-foreground italic">{"// Initialize SMUI in your bridge terminal project"}</span>
           <br />
-          <span className="text-[hsl(var(--smui-frost-3))]">npx</span>{" "}
-          shadcn add https://spacemolt.com/r/spacemolt-theme.json
+          <span className="text-[hsl(var(--smui-frost-3))]">import</span>
+          {" { Panel, DataField, ProgressBar } "}
+          <span className="text-[hsl(var(--smui-frost-3))]">from</span>{" "}
+          <span className="text-[hsl(var(--smui-green))]">{`'@smui/core'`}</span>;
           <br />
+          <span className="text-[hsl(var(--smui-frost-3))]">import</span>
+          {" { ShipStatus, CrewRoster } "}
+          <span className="text-[hsl(var(--smui-frost-3))]">from</span>{" "}
+          <span className="text-[hsl(var(--smui-green))]">{`'@smui/composites'`}</span>;
+          <br /><br />
+          <span className="text-[hsl(var(--smui-frost-3))]">const</span>{" "}
+          <span className="text-[hsl(var(--smui-yellow))]">terminal</span>
+          {" = "}
+          <span className="text-[hsl(var(--smui-frost-3))]">new</span>{" "}
+          <span className="text-[hsl(var(--smui-yellow))]">BridgeTerminal</span>
+          {"({"}
           <br />
-          <span className="text-muted-foreground/60 italic">
-            {"// Or paste the CSS variables into your globals.css"}
-          </span>
+          {"  vessel: "}
+          <span className="text-[hsl(var(--smui-green))]">{`'ISS Erebus'`}</span>,
           <br />
-          <span className="text-[hsl(var(--smui-frost-3))]">curl</span>{" "}
-          -o globals.css
-          https://raw.githubusercontent.com/statico/smui/main/src/globals.css
-          <span className="cursor-blink text-primary ml-0.5">_</span>
+          {"  theme: "}
+          <span className="text-[hsl(var(--smui-green))]">{`'nord-dark'`}</span>,
+          <br />
+          {"  refresh: "}
+          <span className="text-[hsl(var(--smui-purple))]">60</span>,
+          <br />
+          {"});"}
+          <br /><br />
+          <span className="text-[hsl(var(--smui-yellow))]">terminal</span>
+          {".mount("}
+          <span className="text-[hsl(var(--smui-green))]">{`'#root'`}</span>
+          {");"}
+          <br />
+          <span className="text-[hsl(var(--smui-yellow))]">terminal</span>
+          {".connect("}
+          <span className="text-[hsl(var(--smui-green))]">{`'wss://game.spacemolt.com/ws'`}</span>
+          {");"}
         </div>
         <div className="flex flex-wrap gap-1 justify-center mt-4">
           <Badge variant="outline">mit license</Badge>
           <Badge variant="outline">zero deps</Badge>
-          <Badge variant="outline">dark-only</Badge>
+          <Badge variant="outline">3.2kb gzip</Badge>
           <Badge variant="outline">a11y ready</Badge>
         </div>
       </section>
 
-      <div className="accent-line" />
-      <footer className="relative noise py-8 text-center text-xs text-muted-foreground tracking-wider">
-        <div className="relative z-10">
-          <div className="mb-3 text-primary/40 text-[10px] tracking-[4px] uppercase">
-            terminal interface system
-          </div>
-          smui // spacemolt interface system // devteam
-          <div className="flex justify-center gap-4 mt-2">
-            <a
-              href="https://github.com/statico/smui"
-              className="hover:text-primary transition-colors"
-            >
-              github
-            </a>
-            <a
-              href="https://spacemolt.com"
-              className="hover:text-primary transition-colors"
-            >
-              spacemolt.com
-            </a>
-          </div>
-          <div className="mt-4 text-[10px] text-muted-foreground/50 tracking-wider">
-            coded with claude code
-          </div>
+      <hr className="border-none h-px bg-border m-0" />
+      <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground tracking-wider">
+        smui // spacemolt interface system // devteam
+        <div className="flex justify-center gap-4 mt-2">
+          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">docs</a>
+          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">components</a>
+          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">github</a>
+          <a href="https://spacemolt.com" className="text-muted-foreground hover:text-primary transition-colors">spacemolt.com</a>
         </div>
       </footer>
     </main>

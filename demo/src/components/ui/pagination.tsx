@@ -22,7 +22,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-1", className)}
+      className={cn("flex flex-row items-center gap-0.5", className)}
       {...props}
     />
   )
@@ -50,9 +50,10 @@ function PaginationLink({
       data-active={isActive}
       className={cn(
         buttonVariants({
-          variant: isActive ? "outline" : "ghost",
+          variant: "outline",
           size,
         }),
+        isActive && "text-primary border-primary bg-primary/10",
         className
       )}
       {...props}
