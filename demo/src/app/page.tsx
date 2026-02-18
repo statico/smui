@@ -586,11 +586,11 @@ function TextareaAvatarBreadcrumb() {
         </label>
         <div className="flex -space-x-2 mb-3">
           {["KV", "LC", "DM", "SO"].map((initials) => (
-            <Avatar key={initials} className="border-2 border-card">
+            <Avatar key={initials} className="border-2 border-card size-9">
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
           ))}
-          <Avatar className="border-2 border-card">
+          <Avatar className="border-2 border-card size-9">
             <AvatarFallback className="text-muted-foreground">
               +3
             </AvatarFallback>
@@ -638,7 +638,7 @@ function SkeletonSeparator() {
           tooltip
         </label>
         <div className="text-center my-3">
-          <Tooltip>
+          <Tooltip open>
             <TooltipTrigger asChild>
               <Button variant="outline" size="sm">
                 hover target
@@ -755,7 +755,7 @@ function CommandPalettePanel() {
       </CardHeader>
       <CardContent className="flex justify-center">
         <div className="bg-card border border-border max-w-[360px] w-full">
-          <div className="flex items-center gap-2 px-3 py-2 border-b border-border">
+          <div className="flex items-center gap-2 px-2.5 py-2 border-b border-border">
             <span className="text-[13px] text-muted-foreground">&gt;</span>
             <input
               type="text"
@@ -1079,8 +1079,7 @@ export default function Home() {
                   component // dialog
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
+              <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
                 <div className="bg-card border border-border w-full max-w-[300px]">
                   <div className="p-2.5 px-3 border-b border-border">
                     <div className="text-sm font-medium text-foreground uppercase tracking-wider">confirm jump</div>
@@ -1102,7 +1101,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              </CardContent>
             </Card>
           </div>
         </div>
