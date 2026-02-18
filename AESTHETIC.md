@@ -126,6 +126,71 @@ const mono = JetBrains_Mono({
 // Apply as: <body className={mono.className}>
 ```
 
+### Typography Scale Variables
+
+SMUI defines a set of CSS custom properties for font sizes. These are configurable via CSS variables:
+
+| CSS Variable | Default | Tailwind Utility | Usage |
+|---|---|---|---|
+| `--text-label` | `11px` | `text-label` | Labels, badges, status text, kbd shortcuts |
+| `--text-ui` | `13px` | `text-ui` | Buttons, nav items, table body, alerts |
+| `--text-heading` | `22px` | `text-heading` | Section headings |
+| `--text-stat` | `26px` | `text-stat` | Big stat numbers |
+| `--text-hero` | `42px` | `text-hero` | Hero display text |
+
+Standard Tailwind sizes `text-xs` (12px) and `text-sm` (14px) are also used for card titles and body text respectively.
+
+#### Registering in Tailwind v4
+
+Add a **non-inline** `@theme` block (separate from your `@theme inline` colors). This is important -- `@theme inline` does not emit CSS custom properties, so font-size utilities won't resolve:
+
+```css
+@theme {
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
+}
+```
+
+#### tailwind-merge Configuration
+
+Because `text-label`, `text-ui`, etc. look like color classes to tailwind-merge, you must extend your `cn()` helper so they aren't merged away by color classes like `text-foreground`:
+
+```ts
+import { extendTailwindMerge } from "tailwind-merge"
+
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [
+        "text-label",
+        "text-ui",
+        "text-heading",
+        "text-stat",
+        "text-hero",
+      ],
+    },
+  },
+})
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+#### Overriding
+
+To adjust font sizes globally, override the CSS custom properties:
+
+```css
+:root {
+  --text-label: 12px;  /* make labels slightly larger */
+  --text-stat: 28px;   /* bigger stat numbers */
+}
+```
+
 ### Type Scale and Patterns
 
 SMUI uses a small number of recurring typography patterns. Apply these consistently:
@@ -140,7 +205,7 @@ Example: `VESSEL CONFIG`, `SYSTEM READOUTS`, `CARGO MANIFEST`
 
 #### Field Label
 ```
-text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1
+text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1
 ```
 Used above form inputs, data fields, and grouped content. Slightly smaller than card titles.
 
@@ -148,7 +213,7 @@ Example: `VESSEL NAME`, `POWER ALLOCATION`, `AUTH CODE`
 
 #### Status / Role Text
 ```
-text-[11px] text-muted-foreground tracking-wider
+text-label text-muted-foreground tracking-wider
 ```
 Used for secondary descriptive text like crew roles, subtitles, and status descriptions.
 
@@ -156,7 +221,7 @@ Example: `COMMANDING OFFICER`, `broadcast vessel identity`
 
 #### Big Number / Stat
 ```
-text-[26px] font-medium text-foreground tracking-tight
+text-stat font-medium text-foreground tracking-tight
 ```
 Used for prominent numeric displays in stat cards.
 
@@ -180,7 +245,7 @@ Example: `COMPONENTS`, `EXAMPLE // LAYOUT`
 
 #### Section Heading
 ```
-text-[22px] font-medium text-foreground tracking-tight mb-1
+text-heading font-medium text-foreground tracking-tight mb-1
 ```
 Used for main section titles on the page.
 
@@ -192,7 +257,7 @@ Used for descriptive paragraphs.
 
 #### Status Badge Text
 ```
-text-[11px] tracking-wider uppercase px-1.5 py-px border
+text-label tracking-wider uppercase px-1.5 py-px border
 ```
 Used for inline status indicators. Combine with color classes.
 
@@ -244,10 +309,10 @@ Key details:
 
 ```tsx
 <Card className="card-glow p-2.5 px-3">
-  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
     total credits
   </span>
-  <div className="text-[26px] font-medium text-foreground tracking-tight">
+  <div className="text-stat font-medium text-foreground tracking-tight">
     1,247,830
   </div>
   <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -269,10 +334,10 @@ For roster-style lists with avatars/icons and status:
   {/* Content */}
   <div className="flex-1">
     <div className="text-sm">Kael Voss</div>
-    <div className="text-[11px] text-muted-foreground tracking-wider">COMMANDING OFFICER</div>
+    <div className="text-label text-muted-foreground tracking-wider">COMMANDING OFFICER</div>
   </div>
   {/* Status badge */}
-  <span className="text-[11px] tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
+  <span className="text-label tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
     online
   </span>
 </div>
@@ -284,7 +349,7 @@ For read-only data fields (like location display):
 
 ```tsx
 <div>
-  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
     system
   </span>
   <div className="text-sm px-2 py-1.5 bg-background border border-border text-primary">
@@ -296,7 +361,7 @@ For read-only data fields (like location display):
 ### Sidebar Navigation Pattern
 
 ```tsx
-<div className={`flex items-center gap-2 text-[13px] py-[5px] px-2.5 cursor-pointer transition-all ${
+<div className={`flex items-center gap-2 text-ui py-[5px] px-2.5 cursor-pointer transition-all ${
   active
     ? "text-primary bg-primary/10"
     : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -326,7 +391,7 @@ Always use the same aurora color for the same semantic meaning:
 ### Status Badge Pattern
 
 ```tsx
-<span className="text-[11px] tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
+<span className="text-label tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
   online
 </span>
 ```
@@ -410,7 +475,7 @@ const typeColors = {
   ref: "text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]",
 };
 
-<span className={`text-[11px] tracking-wider uppercase px-1.5 py-px border ${typeColors[type]}`}>
+<span className={`text-label tracking-wider uppercase px-1.5 py-px border ${typeColors[type]}`}>
   {type}
 </span>
 ```
@@ -533,7 +598,7 @@ Dialogs use the card surface with bordered header/footer:
 ### Separator with Text
 
 ```tsx
-<div className="flex items-center gap-2 text-[11px] text-muted-foreground uppercase tracking-wider">
+<div className="flex items-center gap-2 text-label text-muted-foreground uppercase tracking-wider">
   <Separator className="flex-1" />
   <span>or</span>
   <Separator className="flex-1" />
@@ -543,7 +608,7 @@ Dialogs use the card surface with bordered header/footer:
 ### Keyboard Shortcuts
 
 ```tsx
-<kbd className="text-[11px] text-muted-foreground border border-border px-1 bg-background">
+<kbd className="text-label text-muted-foreground border border-border px-1 bg-background">
   ctrl+k
 </kbd>
 ```
@@ -594,11 +659,11 @@ These are the most frequently used class combinations in SMUI interfaces:
 
 ```
 Card title:     text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal
-Field label:    text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1
-Status badge:   text-[11px] tracking-wider uppercase px-1.5 py-px border
-Big number:     text-[26px] font-medium text-foreground tracking-tight
+Field label:    text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1
+Status badge:   text-label tracking-wider uppercase px-1.5 py-px border
+Big number:     text-stat font-medium text-foreground tracking-tight
 Section eyebrow: text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5
-Section title:  text-[22px] font-medium text-foreground tracking-tight mb-1
+Section title:  text-heading font-medium text-foreground tracking-tight mb-1
 Body text:      text-sm text-muted-foreground
 Status dot:     inline-block w-[5px] h-[5px] rounded-full bg-[hsl(var(--smui-COLOR))]
 Card hover:     card-glow (CSS class)

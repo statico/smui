@@ -66,6 +66,13 @@
 
   /* Font */
   --font-sans: 'JetBrains Mono', monospace;
+
+  /* Typography scale */
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
 }
 
 .dark {
@@ -103,4 +110,9 @@
   --sidebar-accent-foreground: 193 44% 67%;
   --sidebar-border: 217 17% 28%;
   --sidebar-ring: 193 44% 67%;
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
 }

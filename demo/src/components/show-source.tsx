@@ -59,7 +59,7 @@ export function ShowSource({
           >
             {/* Header */}
             <div className="flex items-center justify-between py-2.5 px-3.5 border-b border-border shrink-0">
-              <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase">
+              <span className="text-label text-muted-foreground tracking-[1.5px] uppercase">
                 source
               </span>
               <div className="flex items-center gap-2">
