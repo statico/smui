@@ -24,7 +24,7 @@ For full installation instructions, component examples, and the design guide, vi
 
 - All shadcn/ui CSS variables mapped to a Nord-inspired palette
 - Light mode (Snow Storm) and dark mode (Polar Night) with contrast-adjusted colors
-- `--primary` = frost blue accent (dark: `#88c0d0`, light: `#5e81ac`)
+- `--primary` = frost blue accent (dark: `#88c0d0`, light: `#4c6d94`)
 - Four-level surface hierarchy (`surface-0` through `surface-3`)
 - Five chart colors from the frost/aurora palette
 - Sidebar variables pre-configured

@@ -16,6 +16,20 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["300", "400", "500", 
 // Apply: <body className={mono.className}>
 ```
 
+## Theme Switching
+
+Use `next-themes` with `attribute="class"` so the `.dark` class controls mode:
+
+```tsx
+import { ThemeProvider } from "next-themes";
+
+<ThemeProvider attribute="class" defaultTheme="dark">
+  {children}
+</ThemeProvider>
+```
+
+All CSS variables are defined in `:root` (light) and `.dark` (dark). The extended SMUI colors and surface hierarchy also have light/dark variants. No extra work is needed -- just toggle the class.
+
 ## Core Rules
 
 1. **Light + dark mode.** `:root` = light (Snow Storm), `.dark` = dark (Polar Night). Use `next-themes` with `attribute="class"` for switching.
@@ -28,6 +42,8 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["300", "400", "500", 
 
 ### Semantic Variables (shadcn)
 
+Dark mode (`.dark`):
+
 | Variable | Hex | Usage |
 |---|---|---|
 | `--background` | `#1a1e24` | Page background |
@@ -38,6 +54,18 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["300", "400", "500", 
 | `--border` | `#3b4252` | Borders |
 | `--destructive` | `#d4737c` | Error/danger |
 
+Light mode (`:root`):
+
+| Variable | Hex | Usage |
+|---|---|---|
+| `--background` | `#eceff4` | Page background (Snow Storm 3) |
+| `--foreground` | `#2e3440` | Primary text (Polar Night 1) |
+| `--card` | `#e5e9f0` | Card/panel backgrounds (Snow Storm 2) |
+| `--primary` | `#4c6d94` | Primary accent (darkened for contrast) |
+| `--muted-foreground` | `#48505c` | Secondary/muted text |
+| `--border` | `#c9cfda` | Borders |
+| `--destructive` | `#a3303d` | Error/danger |
+
 ### Extended SMUI Colors
 
 These are raw HSL triplets. Use with `hsl()` and optional alpha: `text-[hsl(var(--smui-green))]`, `border-[hsl(var(--smui-yellow)/0.3)]`, `bg-[hsl(var(--smui-frost-2)/0.04)]`.
@@ -47,7 +75,7 @@ These are raw HSL triplets. Use with `hsl()` and optional alpha: `text-[hsl(var(
 | `--smui-frost-1` | `#8fbcbb` | Teal accent |
 | `--smui-frost-2` | `#88c0d0` | Primary frost blue (= `--primary`) |
 | `--smui-frost-3` | `#81a1c1` | Steel blue |
-| `--smui-frost-4` | `#5e81ac` | Deep blue |
+| `--smui-frost-4` | `#4c6d94` | Deep blue |
 | `--smui-green` | `#a3be8c` | Success, online, nominal |
 | `--smui-yellow` | `#ebcb8b` | Warning, standby, caution |
 | `--smui-orange` | `#d08770` | Alert, degraded |
@@ -56,7 +84,9 @@ These are raw HSL triplets. Use with `hsl()` and optional alpha: `text-[hsl(var(
 
 ### Surface Hierarchy
 
-Four background levels for depth:
+Four background levels for depth. Values change between light and dark modes:
+
+Dark (Polar Night):
 
 | Variable | Hex | Usage |
 |---|---|---|
@@ -64,6 +94,15 @@ Four background levels for depth:
 | `--smui-surface-1` | `#21262e` | Cards, panels |
 | `--smui-surface-2` | `#282e37` | Elevated elements |
 | `--smui-surface-3` | `#2f3640` | Highlights, active states |
+
+Light (Snow Storm):
+
+| Variable | Hex | Usage |
+|---|---|---|
+| `--smui-surface-0` | `#eceff4` | Page background |
+| `--smui-surface-1` | `#e5e9f0` | Cards, panels |
+| `--smui-surface-2` | `#d8dee9` | Elevated elements |
+| `--smui-surface-3` | `#c8ced9` | Highlights, active states |
 
 ## Typography Patterns
 
@@ -233,7 +272,7 @@ export function cn(...inputs: ClassValue[]) {
 ## Quick Reference
 
 - Theme: light + dark, Nord-inspired, zero radius, monospace
-- Primary accent: dark `#88c0d0` / light `#5e81ac` (frost blue)
+- Primary accent: dark `#88c0d0` / light `#4c6d94` (frost blue)
 - Status: green=success, yellow=warning, red=error, purple=info
 - Labels: always uppercase with wide tracking
 - Cards: use `card-glow` class, `py-2.5 px-3.5` header padding

@@ -520,17 +520,20 @@ const CODE_PALETTE = `:root {
   --smui-purple: 311 24% 63%;    /* #b48ead - info/special */
 }`;
 
-const CODE_SURFACES = `:root {
-  /* Surface hierarchy - four background depth levels */
-  --smui-surface-0: 213 16% 12%;   /* #1a1e24 - page background */
-  --smui-surface-1: 217 16% 15.5%; /* #21262e - cards, panels */
-  --smui-surface-2: 216 15% 19%;   /* #282e37 - elevated elements */
-  --smui-surface-3: 215 14% 22%;   /* #2f3640 - highlights, active */
+const CODE_SURFACES = `/* Light: Snow Storm surfaces */
+:root {
+  --smui-surface-0: 218 27% 94%;   /* #eceff4 - page background */
+  --smui-surface-1: 218 27% 92%;   /* #e5e9f0 - cards, panels */
+  --smui-surface-2: 219 28% 88%;   /* #d8dee9 - elevated elements */
+  --smui-surface-3: 219 20% 82%;   /* #c8ced9 - highlights, active */
+}
 
-  /* Maps to shadcn variables */
-  --background: hsl(var(--smui-surface-0));
-  --card: hsl(var(--smui-surface-1));
-  --secondary: hsl(var(--smui-surface-2));
+/* Dark: Polar Night surfaces */
+.dark {
+  --smui-surface-0: 213 16% 12%;   /* #1a1e24 */
+  --smui-surface-1: 217 16% 15.5%; /* #21262e */
+  --smui-surface-2: 216 15% 19%;   /* #282e37 */
+  --smui-surface-3: 215 14% 22%;   /* #2f3640 */
 }`;
 
 const CODE_RADIUS = `:root {
@@ -593,7 +596,7 @@ const CODE_DARK_MODE = `/* Light mode: Nord Snow Storm */
 :root {
   --background: hsl(218 27% 94%);  /* #eceff4 */
   --foreground: hsl(220 16% 22%);  /* #2e3440 */
-  --primary: hsl(213 32% 52%);     /* #5e81ac */
+  --primary: hsl(213 32% 44%);     /* #4e6f96 */
   --card: hsl(218 27% 92%);        /* #e5e9f0 */
 }
 
@@ -669,34 +672,32 @@ export default function Layout({ children }) {
 }`;
 
 const INSTALL_PALETTE_CODE = `:root {
-  /* Frost blues */
+  /* Frost blues + aurora (shared across themes) */
   --smui-frost-1: 176 25% 65%;
   --smui-frost-2: 193 44% 67%;
   --smui-frost-3: 210 34% 63%;
   --smui-frost-4: 213 32% 52%;
-
-  /* Aurora status colors */
   --smui-red: 355 52% 64%;
   --smui-orange: 14 51% 63%;
   --smui-yellow: 40 71% 73%;
   --smui-green: 92 28% 65%;
   --smui-purple: 311 24% 63%;
 
-  /* Surface hierarchy */
+  /* Light surfaces (Snow Storm) */
+  --smui-surface-0: 218 27% 94%;
+  --smui-surface-1: 218 27% 92%;
+  --smui-surface-2: 219 28% 88%;
+  --smui-surface-3: 219 20% 82%;
+  --smui-border-hover: 219 15% 68%;
+}
+
+.dark {
+  /* Dark surfaces (Polar Night) */
   --smui-surface-0: 213 16% 12%;
   --smui-surface-1: 217 16% 15.5%;
   --smui-surface-2: 216 15% 19%;
   --smui-surface-3: 215 14% 22%;
-
-  /* Interactive */
   --smui-border-hover: 216 12% 37%;
-
-  /* Typography scale */
-  --text-label: 11px;
-  --text-ui: 13px;
-  --text-heading: 22px;
-  --text-stat: 26px;
-  --text-hero: 42px;
 }`;
 
 const INSTALL_THEME_CODE = `@theme inline {
@@ -742,10 +743,10 @@ const PALETTE_SWATCHES = [
 ];
 
 const SURFACE_LEVELS = [
-  { name: "surface-0", color: "#1a1e24", label: "background" },
-  { name: "surface-1", color: "#21262e", label: "cards" },
-  { name: "surface-2", color: "#282e37", label: "elevated" },
-  { name: "surface-3", color: "#2f3640", label: "highlights" },
+  { name: "surface-0", cssVar: "--smui-surface-0", label: "background" },
+  { name: "surface-1", cssVar: "--smui-surface-1", label: "cards" },
+  { name: "surface-2", cssVar: "--smui-surface-2", label: "elevated" },
+  { name: "surface-3", cssVar: "--smui-surface-3", label: "highlights" },
 ];
 
 // ============================================================
@@ -793,7 +794,7 @@ function Nav() {
           patterns
         </a>
       </div>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-3">
         <ThemeSwitcher />
         <a
           href="https://github.com/statico/smui"
@@ -827,7 +828,7 @@ function Hero() {
         A terminal theme for{" "}
         <a
           href="https://ui.shadcn.com"
-          className="text-primary hover:underline"
+          className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
         >
           shadcn/ui
         </a>
@@ -835,7 +836,7 @@ function Hero() {
         the starship terminals of{" "}
         <a
           href="https://smui.statico.io"
-          className="text-primary hover:underline"
+          className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
         >
           SpaceMolt
         </a>
@@ -849,7 +850,7 @@ function Hero() {
         Or copy the{" "}
         <a
           href="https://github.com/statico/smui/blob/main/src/globals.css"
-          className="text-primary hover:underline"
+          className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -862,7 +863,7 @@ function Hero() {
         Tell it to read{" "}
         <a
           href="https://smui.statico.io/skill.md"
-          className="text-primary hover:underline"
+          className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -948,7 +949,7 @@ function WhatYouGet({
                   >
                     <div
                       className="w-full h-8 border border-border"
-                      style={{ backgroundColor: s.color }}
+                      style={{ backgroundColor: `hsl(var(${s.cssVar}))` }}
                     />
                     <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-wider">
                       {s.label}
@@ -1188,7 +1189,7 @@ function DesignGuide() {
         components. See{" "}
         <a
           href="https://github.com/statico/smui/blob/main/AESTHETIC.md"
-          className="text-primary hover:underline"
+          className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
           target="_blank"
           rel="noopener noreferrer"
         >

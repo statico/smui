@@ -82,32 +82,32 @@
   --card-foreground: hsl(220 16% 22%);
   --popover: hsl(218 27% 92%);
   --popover-foreground: hsl(220 16% 22%);
-  --primary: hsl(213 32% 52%);
+  --primary: hsl(213 32% 44%);
   --primary-foreground: hsl(0 0% 100%);
   --secondary: hsl(219 28% 88%);
   --secondary-foreground: hsl(220 16% 22%);
   --muted: hsl(219 28% 88%);
-  --muted-foreground: hsl(220 17% 36%);
+  --muted-foreground: hsl(220 17% 33%);
   --accent: hsl(213 20% 90%);
-  --accent-foreground: hsl(213 32% 52%);
+  --accent-foreground: hsl(213 32% 44%);
   --destructive: hsl(355 60% 48%);
   --destructive-foreground: hsl(0 0% 100%);
   --border: hsl(219 18% 80%);
   --input: hsl(219 18% 80%);
-  --ring: hsl(213 32% 52%);
-  --chart-1: hsl(213 32% 52%);
+  --ring: hsl(213 32% 44%);
+  --chart-1: hsl(213 32% 44%);
   --chart-2: hsl(210 34% 45%);
   --chart-3: hsl(92 30% 40%);
   --chart-4: hsl(40 70% 38%);
   --chart-5: hsl(311 28% 45%);
   --sidebar: hsl(218 27% 92%);
   --sidebar-foreground: hsl(220 16% 22%);
-  --sidebar-primary: hsl(213 32% 52%);
+  --sidebar-primary: hsl(213 32% 44%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
   --sidebar-accent: hsl(213 20% 90%);
-  --sidebar-accent-foreground: hsl(213 32% 52%);
+  --sidebar-accent-foreground: hsl(213 32% 44%);
   --sidebar-border: hsl(219 18% 80%);
-  --sidebar-ring: hsl(213 32% 52%);
+  --sidebar-ring: hsl(213 32% 44%);
 
   /* SpaceMolt extended palette -- darkened for light backgrounds */
   --smui-frost-1: 176 30% 40%;
@@ -143,7 +143,7 @@
   --muted-foreground: hsl(213 14% 65%);
   --accent: hsl(193 10% 16%);
   --accent-foreground: hsl(193 44% 67%);
-  --destructive: hsl(355 52% 64%);
+  --destructive: hsl(355 52% 65%);
   --destructive-foreground: hsl(219 28% 94%);
   --border: hsl(217 17% 28%);
   --input: hsl(217 17% 28%);
@@ -222,4 +222,16 @@
 .dark ::selection {
   background: hsl(193 44% 67% / 0.2);
   color: hsl(193 44% 67%);
+}
+
+/* Shiki dual theme: light by default, dark when .dark class */
+.shiki,
+.shiki span {
+  color: var(--shiki-light) !important;
+  background-color: transparent !important;
+}
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: transparent !important;
 }

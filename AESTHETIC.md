@@ -91,7 +91,7 @@ In light mode (`:root`), colors are adjusted for contrast against Snow Storm bac
 | `--background` | `218 27% 94%` | `#eceff4` | Page background (Snow Storm 3) |
 | `--foreground` | `220 16% 22%` | `#2e3440` | Primary text (Polar Night 1) |
 | `--card` | `218 27% 92%` | `#e5e9f0` | Card/panel backgrounds (Snow Storm 2) |
-| `--primary` | `213 32% 52%` | `#5e81ac` | Primary accent (Frost 4, darker for contrast) |
+| `--primary` | `213 32% 44%` | `#4c6d94` | Primary accent (Frost 4, darkened for WCAG contrast) |
 | `--muted-foreground` | `220 17% 36%` | `#4c566a` | Muted text (Polar Night 4) |
 | `--border` | `219 18% 80%` | `#c9cfda` | Borders |
 
