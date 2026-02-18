@@ -4,7 +4,7 @@ A dark terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-ins
 
 **For documentation and examples, see [https://smui.statico.io](https://smui.statico.io)**
 
-[![smui screenshot](https://smui.statico.io/screenshot.png)](https://smui.statico.io)
+[![smui screenshot](https://smui.statico.io/screenshot.gif)](https://smui.statico.io)
 
 ## Install
 
