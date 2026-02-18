@@ -78,9 +78,14 @@ async function main() {
   ], { cwd: tmp, stdio: "inherit" });
 
   // Copy to public
-  const dest = join(ROOT, "demo/public/screenshot.gif");
-  execFileSync("cp", [join(tmp, "screenshot.gif"), dest]);
-  console.log(`\nSaved to ${dest}`);
+  const gifDest = join(ROOT, "demo/public/screenshot.gif");
+  execFileSync("cp", [join(tmp, "screenshot.gif"), gifDest]);
+  console.log(`\nSaved to ${gifDest}`);
+
+  // Also update the static PNG with the default accent
+  const pngDest = join(ROOT, "demo/public/screenshot.png");
+  execFileSync("cp", [join(tmp, `${ACCENTS[0].name}.png`), pngDest]);
+  console.log(`Saved to ${pngDest}`);
 }
 
 main().catch((e) => {
