@@ -2,12 +2,12 @@
 
 A dark terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-inspired colors, JetBrains Mono everywhere, zero border radius. Spaceship terminals don't have light mode.
 
-**Demo:** [smui.statico.io](https://smui.statico.io)
+**Demo:** [smui.spacemolt.com](https://smui.spacemolt.com)
 
 ## Install
 
 ```bash
-npx shadcn add https://spacemolt.com/r/spacemolt-theme.json
+npx shadcn add https://smui.spacemolt.com/r/spacemolt-theme.json
 ```
 
 Then load [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) in your app. With Next.js:
@@ -21,6 +21,8 @@ export default function Layout({ children }) {
   return <html><body className={mono.className}>{children}</body></html>;
 }
 ```
+
+Or copy the [CSS variables](src/globals.css) directly into your project.
 
 ## What you get
 
@@ -55,6 +57,10 @@ Beyond shadcn's base variables, the theme includes:
 
 Use them with Tailwind: `bg-smui-frost-2`, `text-smui-red`, `border-smui-surface-3`, etc.
 
+## Design guide
+
+See [AESTHETIC.md](AESTHETIC.md) for the complete design system reference -- typography patterns, status color conventions, component structures, and utility CSS. This document is designed for both humans and LLMs building interfaces with the SMUI aesthetic.
+
 ## Accent color switching
 
 The theme's accent color can be swapped at runtime by updating a few CSS variables. See `demo/src/components/accent-picker.tsx` for a reference implementation that cycles through all nine Nord palette colors.
@@ -62,9 +68,10 @@ The theme's accent color can be swapped at runtime by updating a few CSS variabl
 ## Files
 
 ```
-registry/spacemolt-theme.json   # shadcn registry theme (install with npx shadcn add)
-src/globals.css                 # reference CSS with all variables
-demo/                           # Next.js demo app
+AESTHETIC.md                       # Complete design system reference
+registry/spacemolt-theme.json      # shadcn registry theme (install with npx shadcn add)
+src/globals.css                    # Reference CSS with all variables
+demo/                              # Next.js demo app at smui.spacemolt.com
 ```
 
 ## License
