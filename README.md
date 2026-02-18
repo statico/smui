@@ -2,7 +2,9 @@
 
 A dark terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-inspired colors, JetBrains Mono everywhere, zero border radius. Spaceship terminals don't have light mode.
 
-![smui screenshot](https://smui.statico.io/screenshot.png)
+**For documentation and examples, see [https://smui.statico.io](https://smui.statico.io)**
+
+[![smui screenshot](https://smui.statico.io/screenshot.png)](https://smui.statico.io)
 
 ## Install
 
