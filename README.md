@@ -1,6 +1,6 @@
 # smui // spacemolt ui
 
-A dark terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-inspired colors, JetBrains Mono everywhere, zero border radius. Spaceship terminals don't have light mode.
+A terminal-aesthetic theme for [shadcn/ui](https://ui.shadcn.com). Nord-inspired colors, JetBrains Mono everywhere, zero border radius. Light and dark modes with full contrast-adjusted palettes.
 
 **For documentation and examples, see [https://smui.statico.io](https://smui.statico.io)**
 
@@ -22,15 +22,16 @@ For full installation instructions, component examples, and the design guide, vi
 
 ## What you get
 
-- All shadcn/ui CSS variables mapped to a Nord-inspired dark palette
-- `--primary` = frost blue accent (`#88c0d0`)
+- All shadcn/ui CSS variables mapped to a Nord-inspired palette
+- Light mode (Snow Storm) and dark mode (Polar Night) with contrast-adjusted colors
+- `--primary` = frost blue accent (dark: `#88c0d0`, light: `#5e81ac`)
 - Four-level surface hierarchy (`surface-0` through `surface-3`)
 - Five chart colors from the frost/aurora palette
 - Sidebar variables pre-configured
 - `0rem` border radius (sharp edges)
 - JetBrains Mono as the default sans font
 - Runtime accent color switching
-- Dark mode only (`:root` = `.dark`)
+- Theme switcher with `next-themes` integration
 
 ## Files
 

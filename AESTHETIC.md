@@ -1,6 +1,6 @@
 # SMUI Aesthetic Guide
 
-This document describes the complete visual language of SMUI (SpaceMolt UI) -- a dark terminal theme for shadcn/ui. Use this as a reference when building interfaces that match the SMUI aesthetic.
+This document describes the complete visual language of SMUI (SpaceMolt UI) -- a terminal theme for shadcn/ui with light and dark modes. Use this as a reference when building interfaces that match the SMUI aesthetic.
 
 ## Philosophy
 
@@ -10,7 +10,7 @@ SMUI is inspired by the bridge terminals of starships in science fiction. Every 
 2. **Utilitarian precision** -- No decorative border radius, no gradients, no shadows. Everything has hard edges and clear boundaries
 3. **Status at a glance** -- A five-color aurora palette makes system states immediately recognizable
 
-The theme is dark-mode only. Light and dark mode definitions are identical. Spaceship terminals don't have light mode.
+The theme supports both light and dark modes. Light mode uses Nord's Snow Storm palette, dark mode uses Polar Night. Extended colors (frost, aurora, surfaces) are contrast-adjusted per mode.
 
 ## Color System
 
@@ -79,6 +79,58 @@ Four background depth levels for creating visual layering:
 | Variable | HSL | Hex | Usage |
 |---|---|---|---|
 | `--smui-border-hover` | `216 12% 37%` | `#4c566a` | Border color on hover |
+
+### Light Mode Values
+
+In light mode (`:root`), colors are adjusted for contrast against Snow Storm backgrounds:
+
+#### Light Mode Base Variables
+
+| Variable | HSL | Hex | Usage |
+|---|---|---|---|
+| `--background` | `218 27% 94%` | `#eceff4` | Page background (Snow Storm 3) |
+| `--foreground` | `220 16% 22%` | `#2e3440` | Primary text (Polar Night 1) |
+| `--card` | `218 27% 92%` | `#e5e9f0` | Card/panel backgrounds (Snow Storm 2) |
+| `--primary` | `213 32% 52%` | `#5e81ac` | Primary accent (Frost 4, darker for contrast) |
+| `--muted-foreground` | `220 17% 36%` | `#4c566a` | Muted text (Polar Night 4) |
+| `--border` | `219 18% 80%` | `#c9cfda` | Borders |
+
+#### Light Mode Extended Colors
+
+| Variable | HSL | Hex | Notes |
+|---|---|---|---|
+| `--smui-frost-1` | `176 30% 40%` | `#478c89` | Darkened teal |
+| `--smui-frost-2` | `193 40% 42%` | `#407a95` | Darkened frost blue |
+| `--smui-frost-3` | `210 34% 45%` | `#4c6d8e` | Darkened steel |
+| `--smui-frost-4` | `213 32% 40%` | `#456487` | Darkened deep blue |
+| `--smui-green` | `92 35% 38%` | `#558040` | Darkened success |
+| `--smui-yellow` | `40 70% 38%` | `#a57e1d` | Darkened warning |
+| `--smui-orange` | `14 55% 48%` | `#be5637` | Darkened alert |
+| `--smui-red` | `355 55% 48%` | `#be3744` | Darkened danger |
+| `--smui-purple` | `311 28% 45%` | `#8d5283` | Darkened info |
+
+#### Light Mode Surface Hierarchy
+
+| Variable | HSL | Hex | Usage |
+|---|---|---|---|
+| `--smui-surface-0` | `218 27% 94%` | `#eceff4` | Page background |
+| `--smui-surface-1` | `218 27% 92%` | `#e5e9f0` | Cards, panels |
+| `--smui-surface-2` | `219 28% 88%` | `#d8dee9` | Elevated elements |
+| `--smui-surface-3` | `219 20% 82%` | `#c9cfda` | Highlights, active states |
+
+### Theme Switching
+
+Use `next-themes` for theme switching. Wrap your app:
+
+```tsx
+import { ThemeProvider } from "next-themes";
+
+<ThemeProvider attribute="class" defaultTheme="dark">
+  {children}
+</ThemeProvider>
+```
+
+CSS variables automatically switch between light (`:root`) and dark (`.dark`) values.
 
 ### Using Extended Colors in Tailwind
 

@@ -29,7 +29,6 @@ import {
 } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
 import {
-  Code2,
   Compass,
   Crosshair,
   Wrench,
@@ -40,6 +39,7 @@ import {
   AlertTriangle,
   LayoutDashboard,
 } from "lucide-react";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 function Nav() {
   return (
@@ -74,9 +74,7 @@ function Nav() {
             ctrl+k
           </kbd>
         </div>
-        <button className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-[hsl(var(--smui-border-hover))] transition-colors">
-          <Code2 className="w-3.5 h-3.5" />
-        </button>
+        <ThemeSwitcher />
         <span className="text-xs text-muted-foreground ml-1">v1.0.0</span>
       </div>
     </nav>

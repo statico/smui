@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -12,12 +13,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "smui // spacemolt ui",
   description:
-    "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+    "Nord-inspired terminal theme for shadcn/ui. Hardened components for starship terminals.",
   metadataBase: new URL("https://smui.statico.io"),
   openGraph: {
     title: "smui // spacemolt ui",
     description:
-      "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+      "Nord-inspired terminal theme for shadcn/ui. Hardened components for starship terminals.",
     images: [{ url: "https://smui.statico.io/screenshot.gif", width: 1200, height: 630 }],
     type: "website",
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "smui // spacemolt ui",
     description:
-      "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+      "Nord-inspired terminal theme for shadcn/ui. Hardened components for starship terminals.",
     images: ["https://smui.statico.io/screenshot.gif"],
   },
 };
@@ -36,9 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${jetbrainsMono.className} antialiased`}>
-        <TooltipProvider>{children}</TooltipProvider>
+        <ThemeProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
