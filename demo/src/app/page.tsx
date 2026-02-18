@@ -162,7 +162,7 @@ function VesselConfig() {
         </CardDescription>
       </CardHeader>
       <CardContent className="">
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-3.5">
           <div>
             <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               vessel name
@@ -173,7 +173,7 @@ function VesselConfig() {
             <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               class
             </label>
-            <div className="flex items-center justify-between px-2 py-1.5 bg-background border border-border text-sm cursor-pointer">
+            <div className="flex items-center justify-between h-9 px-2 py-1.5 bg-background border border-border text-sm cursor-pointer">
               CRUISER-MK4
               <span className="text-muted-foreground text-xs">&#9662;</span>
             </div>
@@ -300,7 +300,7 @@ function SystemReadouts() {
           nominal
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-2.5">
+      <CardContent className="space-y-[11px]">
         {READOUTS.map((r) => (
           <div key={r.label}>
             <div className="flex justify-between mb-1">
@@ -753,8 +753,8 @@ function CommandPalettePanel() {
           command palette
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex justify-center">
-        <div className="bg-card border border-border max-w-[360px] w-full">
+      <CardContent className="pt-3.5">
+        <div className="bg-card border border-border w-full">
           <div className="flex items-center gap-2 px-2.5 py-2 border-b border-border">
             <span className="text-[13px] text-muted-foreground">&gt;</span>
             <input
