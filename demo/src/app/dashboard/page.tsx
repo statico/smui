@@ -70,7 +70,7 @@ function Nav() {
       <div className="flex items-center gap-1">
         <div className="text-xs text-muted-foreground px-2.5 py-1 bg-background border border-border flex items-center justify-between min-w-[180px]">
           <span>search...</span>
-          <kbd className="text-[11px] text-muted-foreground border border-border px-1 bg-card">
+          <kbd className="text-label text-muted-foreground border border-border px-1 bg-card">
             ctrl+k
           </kbd>
         </div>
@@ -165,7 +165,7 @@ export default function DashboardPage() {
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
           example // layout
         </div>
-        <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+        <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
           bridge dashboard
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
@@ -187,7 +187,7 @@ export default function DashboardPage() {
                   {SIDE_NAV.map((item) => (
                     <div
                       key={item.label}
-                      className={`flex items-center gap-2 text-[13px] py-[5px] px-2.5 cursor-pointer transition-colors ${
+                      className={`flex items-center gap-2 text-ui py-[5px] px-2.5 cursor-pointer transition-colors ${
                         item.active
                           ? "text-primary bg-accent"
                           : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -211,7 +211,7 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent className="space-y-2">
                 <div>
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                     system
                   </span>
                   <div className="text-sm text-primary px-2 py-1.5 bg-background border border-border">
@@ -219,7 +219,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div>
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                     sector
                   </span>
                   <div className="text-sm px-2 py-1.5 bg-background border border-border">
@@ -227,7 +227,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div>
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                     coords
                   </span>
                   <div className="text-xs px-2 py-1.5 bg-background border border-border">
@@ -243,10 +243,10 @@ export default function DashboardPage() {
             {/* Stats row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <Card className="hover:border-[hsl(var(--smui-border-hover))] transition-colors p-2.5 px-3">
-                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                   total credits
                 </span>
-                <div className="text-[26px] font-medium text-foreground tracking-tight">
+                <div className="text-stat font-medium text-foreground tracking-tight">
                   1,247,830
                 </div>
                 <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -254,10 +254,10 @@ export default function DashboardPage() {
                 </div>
               </Card>
               <Card className="hover:border-[hsl(var(--smui-border-hover))] transition-colors p-2.5 px-3">
-                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                   kills // losses
                 </span>
-                <div className="text-[26px] font-medium text-foreground tracking-tight">
+                <div className="text-stat font-medium text-foreground tracking-tight">
                   142 / 7
                 </div>
                 <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -265,10 +265,10 @@ export default function DashboardPage() {
                 </div>
               </Card>
               <Card className="hover:border-[hsl(var(--smui-border-hover))] transition-colors p-2.5 px-3">
-                <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                   systems charted
                 </span>
-                <div className="text-[26px] font-medium text-foreground tracking-tight">
+                <div className="text-stat font-medium text-foreground tracking-tight">
                   89
                 </div>
                 <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -333,7 +333,7 @@ export default function DashboardPage() {
                       <TableCell>{row.item}</TableCell>
                       <TableCell>
                         <span
-                          className={`text-[11px] tracking-wider uppercase px-1.5 py-px border ${typeColors[row.type]}`}
+                          className={`text-label tracking-wider uppercase px-1.5 py-px border ${typeColors[row.type]}`}
                         >
                           {row.type}
                         </span>
@@ -374,7 +374,7 @@ export default function DashboardPage() {
                         </DialogDescription>
                       </DialogHeader>
                       <div>
-                        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                           auth code
                         </label>
                         <Input type="password" defaultValue="xxxxxxxxxxxx" />
@@ -405,7 +405,7 @@ export default function DashboardPage() {
                       </div>
                     </div>
                     <div className="p-3">
-                      <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                      <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                         auth code
                       </label>
                       <Input type="password" defaultValue="xxxxxxxxxxxx" />

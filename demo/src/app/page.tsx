@@ -87,13 +87,13 @@ const CODE_VESSEL_CONFIG = `<Card className="card-glow">
   <CardContent>
     <div className="grid grid-cols-2 gap-3.5">
       <div>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           vessel name
         </label>
         <Input defaultValue="ISS EREBUS" />
       </div>
       <div>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           class
         </label>
         <div className="flex items-center justify-between h-9 px-2 py-1.5 bg-background border border-border text-sm cursor-pointer">
@@ -126,9 +126,9 @@ const statusColors = {
     </div>
     <div className="flex-1">
       <div className="text-sm">{c.name}</div>
-      <div className="text-[11px] text-muted-foreground tracking-wider">{c.role}</div>
+      <div className="text-label text-muted-foreground tracking-wider">{c.role}</div>
     </div>
-    <span className={\`text-[11px] tracking-wider uppercase px-1.5 py-px border \${statusColors[c.status]}\`}>
+    <span className={\`text-label tracking-wider uppercase px-1.5 py-px border \${statusColors[c.status]}\`}>
       {c.status}
     </span>
   </div>
@@ -169,7 +169,7 @@ const CODE_BRIDGE_SYSTEMS = `{[
   <div key={item.label} className={\`flex items-center justify-between py-1.5 \${i > 0 ? "border-t border-border" : ""}\`}>
     <div>
       <div className="text-sm">{item.label}</div>
-      <div className="text-[11px] text-muted-foreground tracking-wider uppercase mt-px">
+      <div className="text-label text-muted-foreground tracking-wider uppercase mt-px">
         {item.sub}
       </div>
     </div>
@@ -228,11 +228,11 @@ const CODE_WEAPON_LOADOUT = `{/* Badge group */}
 </div>
 
 {/* Slider with label */}
-<label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+<label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
   power allocation
 </label>
 <Slider defaultValue={[65]} max={100} step={1} className="mb-1" />
-<div className="flex justify-between text-[11px] text-muted-foreground">
+<div className="flex justify-between text-label text-muted-foreground">
   <span>0%</span>
   <span className="text-primary">65%</span>
   <span>100%</span>
@@ -251,7 +251,7 @@ const CODE_WEAPON_LOADOUT = `{/* Badge group */}
 </Tabs>`;
 
 const CODE_CHECKBOX_RADIO = `{/* Checkbox group */}
-<label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+<label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
   permissions
 </label>
 <div className="space-y-2">
@@ -322,7 +322,7 @@ const CODE_SKELETON = `{/* Loading skeleton */}
 </div>
 
 {/* Separator with text */}
-<div className="flex items-center gap-2 text-[11px] text-muted-foreground uppercase tracking-wider">
+<div className="flex items-center gap-2 text-label text-muted-foreground uppercase tracking-wider">
   <Separator className="flex-1" />
   <span>or</span>
   <Separator className="flex-1" />
@@ -369,24 +369,24 @@ const CODE_ACCORDION = `<Accordion type="single" collapsible defaultValue="item-
 
 const CODE_COMMAND_PALETTE = `<div className="bg-card border border-border w-full">
   <div className="flex items-center gap-2 px-2.5 py-2 border-b border-border">
-    <span className="text-[13px] text-muted-foreground">&gt;</span>
+    <span className="text-ui text-muted-foreground">&gt;</span>
     <input
       type="text"
       placeholder="type a command..."
       className="text-sm bg-transparent border-none outline-none flex-1 text-foreground placeholder:text-muted-foreground"
     />
   </div>
-  <div className="text-[11px] text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
+  <div className="text-label text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
     navigation
   </div>
   {[
     { icon: <Compass className="w-3.5 h-3.5" />, label: "overview", kbd: "ctrl+1" },
     { icon: <Crosshair className="w-3.5 h-3.5" />, label: "weapons", kbd: "ctrl+3" },
   ].map((item) => (
-    <div key={item.label} className="flex items-center gap-2 px-3 py-1.5 text-[13px] text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors">
+    <div key={item.label} className="flex items-center gap-2 px-3 py-1.5 text-ui text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors">
       <span className="w-3.5 text-center">{item.icon}</span>
       {item.label}
-      <kbd className="ml-auto text-[11px] text-muted-foreground border border-border px-1 bg-background">
+      <kbd className="ml-auto text-label text-muted-foreground border border-border px-1 bg-background">
         {item.kbd}
       </kbd>
     </div>
@@ -415,7 +415,7 @@ const CODE_CARGO_TABLE = `const typeColors = {
       <TableRow key={row.item}>
         <TableCell>{row.item}</TableCell>
         <TableCell>
-          <span className={\`text-[11px] tracking-wider uppercase px-1.5 py-px border \${typeColors[row.type]}\`}>
+          <span className={\`text-label tracking-wider uppercase px-1.5 py-px border \${typeColors[row.type]}\`}>
             {row.type}
           </span>
         </TableCell>
@@ -429,10 +429,10 @@ const CODE_CARGO_TABLE = `const typeColors = {
 
 const CODE_DASHBOARD = `{/* Stat card */}
 <Card className="card-glow p-2.5 px-3">
-  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
     total credits
   </span>
-  <div className="text-[26px] font-medium text-foreground tracking-tight">
+  <div className="text-stat font-medium text-foreground tracking-tight">
     1,247,830
   </div>
   <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -456,7 +456,7 @@ const CODE_DASHBOARD = `{/* Stat card */}
 </div>
 
 {/* Sidebar nav item */}
-<div className={\`flex items-center gap-2 text-[13px] py-[5px] px-2.5 cursor-pointer \${
+<div className={\`flex items-center gap-2 text-ui py-[5px] px-2.5 cursor-pointer \${
   active ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-secondary"
 }\`}>
   <span className="text-xs w-3.5 text-center">~</span>
@@ -542,9 +542,9 @@ const mono = JetBrains_Mono({
 
 // Typography patterns:
 // Card title:  text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal
-// Field label: text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1
-// Big number:  text-[26px] font-medium text-foreground tracking-tight
-// Status text: text-[11px] text-muted-foreground tracking-wider`;
+// Field label: text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1
+// Big number:  text-stat font-medium text-foreground tracking-tight
+// Status text: text-label text-muted-foreground tracking-wider`;
 
 const CODE_ACCENT_SWITCHING = `function applyAccent(hex: string) {
   const hsl = hexToHSL(hex);
@@ -858,7 +858,7 @@ function Hero() {
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-4">
         shadcn/ui theme
       </div>
-      <h1 className="text-[42px] font-medium text-primary leading-tight mb-3 tracking-tight">
+      <h1 className="text-hero font-medium text-primary leading-tight mb-3 tracking-tight">
         smui
       </h1>
       <p className="text-[15px] text-muted-foreground max-w-[520px] mx-auto mb-7 leading-relaxed">
@@ -920,7 +920,7 @@ function WhatYouGet({
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         overview
       </div>
-      <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+      <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
         what you get
       </h2>
       <p className="text-sm text-muted-foreground mb-7">
@@ -1035,7 +1035,7 @@ function WhatYouGet({
                 <div className="text-sm text-foreground font-semibold">
                   JetBrains Mono 600
                 </div>
-                <div className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase">
+                <div className="text-label text-muted-foreground tracking-[1.5px] uppercase">
                   uppercase tracking-[1.5px]
                 </div>
               </div>
@@ -1122,13 +1122,13 @@ function VesselConfig() {
       <CardContent className="">
         <div className="grid grid-cols-2 gap-3.5">
           <div>
-            <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+            <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               vessel name
             </label>
             <Input defaultValue="ISS EREBUS" />
           </div>
           <div>
-            <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+            <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               class
             </label>
             <div className="flex items-center justify-between h-9 px-2 py-1.5 bg-background border border-border text-sm cursor-pointer">
@@ -1137,13 +1137,13 @@ function VesselConfig() {
             </div>
           </div>
           <div>
-            <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+            <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               reg code
             </label>
             <Input defaultValue="NCC-48271" />
           </div>
           <div>
-            <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+            <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
               sector
             </label>
             <Input defaultValue="GAMMA-7" />
@@ -1185,12 +1185,12 @@ function CrewRoster() {
             </div>
             <div className="flex-1">
               <div className="text-sm">{c.name}</div>
-              <div className="text-[11px] text-muted-foreground tracking-wider">
+              <div className="text-label text-muted-foreground tracking-wider">
                 {c.role}
               </div>
             </div>
             <span
-              className={`text-[11px] tracking-wider uppercase px-1.5 py-px border ${statusColors[c.status]}`}
+              className={`text-label tracking-wider uppercase px-1.5 py-px border ${statusColors[c.status]}`}
             >
               {c.status}
             </span>
@@ -1274,7 +1274,7 @@ function BridgeSystems() {
           >
             <div>
               <div className="text-sm">{item.label}</div>
-              <div className="text-[11px] text-muted-foreground tracking-wider uppercase mt-px">
+              <div className="text-label text-muted-foreground tracking-wider uppercase mt-px">
                 {item.sub}
               </div>
             </div>
@@ -1363,7 +1363,7 @@ function WeaponLoadout() {
         <CardDescription className="text-xs">armed</CardDescription>
       </CardHeader>
       <CardContent className="">
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           active systems
         </label>
         <div className="flex flex-wrap gap-1 mb-3">
@@ -1383,17 +1383,17 @@ function WeaponLoadout() {
             mines
           </Badge>
         </div>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           power allocation
         </label>
         <Slider defaultValue={[65]} max={100} step={1} className="mb-1" />
-        <div className="flex justify-between text-[11px] text-muted-foreground">
+        <div className="flex justify-between text-label text-muted-foreground">
           <span>0%</span>
           <span className="text-primary">65%</span>
           <span>100%</span>
         </div>
         <div className="mt-3">
-          <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+          <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
             cycle status
           </label>
           <Tabs defaultValue="loaded">
@@ -1434,7 +1434,7 @@ function CheckboxRadioPanel() {
         <CardDescription className="text-xs">selection</CardDescription>
       </CardHeader>
       <CardContent className="">
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           permissions
         </label>
         <div className="space-y-2 mb-3">
@@ -1465,7 +1465,7 @@ function CheckboxRadioPanel() {
           ))}
         </div>
         <Separator className="my-2" />
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           scan mode
         </label>
         <div className="space-y-2">
@@ -1503,7 +1503,7 @@ function TextareaAvatarBreadcrumb() {
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           breadcrumb
         </label>
         <Breadcrumb className="mb-3">
@@ -1521,7 +1521,7 @@ function TextareaAvatarBreadcrumb() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           avatar group
         </label>
         <div className="flex -space-x-2 mb-3">
@@ -1536,7 +1536,7 @@ function TextareaAvatarBreadcrumb() {
             </AvatarFallback>
           </Avatar>
         </div>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           ship log entry
         </label>
         <Textarea defaultValue="Arrived at Station Helix, Gamma Draconis system. Docked at Bay 7. Hull integrity nominal. Offloading palladium ore." />
@@ -1554,7 +1554,7 @@ function SkeletonSeparator() {
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
           loading state
         </label>
         <div className="flex items-center gap-2 mb-1.5">
@@ -1569,12 +1569,12 @@ function SkeletonSeparator() {
           <Skeleton className="w-[80%] h-[11px] mb-1.5" />
           <Skeleton className="w-[90%] h-[11px]" />
         </div>
-        <div className="flex items-center gap-2 my-3 text-[11px] text-muted-foreground uppercase tracking-wider">
+        <div className="flex items-center gap-2 my-3 text-label text-muted-foreground uppercase tracking-wider">
           <Separator className="flex-1" />
           <span>or</span>
           <Separator className="flex-1" />
         </div>
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
           tooltip
         </label>
         <div className="text-center my-3">
@@ -1587,7 +1587,7 @@ function SkeletonSeparator() {
             <TooltipContent>Shield capacity: 4,200 HP</TooltipContent>
           </Tooltip>
         </div>
-        <div className="flex items-center gap-2 my-3 text-[11px] text-muted-foreground uppercase tracking-wider">
+        <div className="flex items-center gap-2 my-3 text-label text-muted-foreground uppercase tracking-wider">
           <Separator className="flex-1" />
           <span>end of section</span>
           <Separator className="flex-1" />
@@ -1606,7 +1606,7 @@ function PaginationPanel() {
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
+        <label className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
           cargo results (page 3 of 12)
         </label>
         <Pagination>
@@ -1701,14 +1701,14 @@ function CommandPalettePanel() {
       <CardContent className="pt-3.5">
         <div className="bg-card border border-border w-full">
           <div className="flex items-center gap-2 px-2.5 py-2 border-b border-border">
-            <span className="text-[13px] text-muted-foreground">&gt;</span>
+            <span className="text-ui text-muted-foreground">&gt;</span>
             <input
               type="text"
               placeholder="type a command..."
               className="text-sm bg-transparent border-none outline-none flex-1 text-foreground placeholder:text-muted-foreground"
             />
           </div>
-          <div className="text-[11px] text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
+          <div className="text-label text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
             navigation
           </div>
           {[
@@ -1730,16 +1730,16 @@ function CommandPalettePanel() {
           ].map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-2 px-3 py-1.5 text-[13px] text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 text-ui text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <span className="w-3.5 text-center">{item.icon}</span>
               {item.label}
-              <kbd className="ml-auto text-[11px] text-muted-foreground border border-border px-1 bg-background">
+              <kbd className="ml-auto text-label text-muted-foreground border border-border px-1 bg-background">
                 {item.kbd}
               </kbd>
             </div>
           ))}
-          <div className="text-[11px] text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
+          <div className="text-label text-muted-foreground tracking-wider uppercase px-3 pt-2 pb-1">
             actions
           </div>
           {[
@@ -1754,7 +1754,7 @@ function CommandPalettePanel() {
           ].map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-2 px-3 py-1.5 text-[13px] text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 text-ui text-muted-foreground cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <span className="w-3.5 text-center">{item.icon}</span>
               {item.label}
@@ -1801,7 +1801,7 @@ function CargoTable() {
               <TableCell>{row.item}</TableCell>
               <TableCell>
                 <span
-                  className={`text-[11px] tracking-wider uppercase px-1.5 py-px border ${typeColors[row.type]}`}
+                  className={`text-label tracking-wider uppercase px-1.5 py-px border ${typeColors[row.type]}`}
                 >
                   {row.type}
                 </span>
@@ -1827,7 +1827,7 @@ async function Installation() {
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         setup
       </div>
-      <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+      <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
         getting started
       </h2>
       <p className="text-sm text-muted-foreground mb-7">
@@ -1918,7 +1918,7 @@ function DesignGuide() {
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         patterns
       </div>
-      <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+      <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
         design guide
       </h2>
       <p className="text-sm text-muted-foreground mb-7">
@@ -1945,40 +1945,40 @@ function DesignGuide() {
           </CardHeader>
           <CardContent className="space-y-3">
             <div>
-              <div className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase mb-1">
+              <div className="text-label text-muted-foreground tracking-[1.5px] uppercase mb-1">
                 card title / section label
               </div>
-              <code className="text-[11px] text-primary block">
+              <code className="text-label text-primary block">
                 text-xs text-muted-foreground tracking-[1.5px] uppercase
                 font-normal
               </code>
             </div>
             <Separator />
             <div>
-              <div className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase mb-1">
+              <div className="text-label text-muted-foreground tracking-[1.5px] uppercase mb-1">
                 field label
               </div>
-              <code className="text-[11px] text-primary block">
-                text-[11px] text-muted-foreground tracking-[1.5px] uppercase
+              <code className="text-label text-primary block">
+                text-label text-muted-foreground tracking-[1.5px] uppercase
                 block mb-1
               </code>
             </div>
             <Separator />
             <div>
-              <div className="text-[11px] text-muted-foreground tracking-wider uppercase mb-1">
+              <div className="text-label text-muted-foreground tracking-wider uppercase mb-1">
                 subtitle / role text
               </div>
-              <code className="text-[11px] text-primary block">
-                text-[11px] text-muted-foreground tracking-wider
+              <code className="text-label text-primary block">
+                text-label text-muted-foreground tracking-wider
               </code>
             </div>
             <Separator />
             <div>
-              <div className="text-[26px] font-medium text-foreground tracking-tight">
+              <div className="text-stat font-medium text-foreground tracking-tight">
                 1,247,830
               </div>
-              <code className="text-[11px] text-primary block mt-1">
-                text-[26px] font-medium text-foreground tracking-tight
+              <code className="text-label text-primary block mt-1">
+                text-stat font-medium text-foreground tracking-tight
               </code>
             </div>
           </CardContent>
@@ -1999,7 +1999,7 @@ function DesignGuide() {
                   online / nominal / success
                 </span>
               </div>
-              <code className="text-[11px] text-primary block">
+              <code className="text-label text-primary block">
                 text-[hsl(var(--smui-green))]
               </code>
             </div>
@@ -2011,7 +2011,7 @@ function DesignGuide() {
                   standby / warning / caution
                 </span>
               </div>
-              <code className="text-[11px] text-primary block">
+              <code className="text-label text-primary block">
                 text-[hsl(var(--smui-yellow))]
               </code>
             </div>
@@ -2023,19 +2023,19 @@ function DesignGuide() {
                   critical / error / danger
                 </span>
               </div>
-              <code className="text-[11px] text-primary block">
+              <code className="text-label text-primary block">
                 text-[hsl(var(--smui-red))]
               </code>
             </div>
             <Separator />
             <div>
               <div className="mb-1">
-                <span className="text-[11px] tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
+                <span className="text-label tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]">
                   status badge
                 </span>
               </div>
-              <code className="text-[11px] text-primary block">
-                {`text-[11px] tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]`}
+              <code className="text-label text-primary block">
+                {`text-label tracking-wider uppercase px-1.5 py-px border text-[hsl(var(--smui-green))] border-[hsl(var(--smui-green)/0.3)]`}
               </code>
             </div>
           </CardContent>
@@ -2151,7 +2151,7 @@ export default async function Home() {
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
           examples
         </div>
-        <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+        <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
           component showcase
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
@@ -2209,7 +2209,7 @@ export default async function Home() {
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
           example // layout
         </div>
-        <h2 className="text-[22px] font-medium text-foreground tracking-tight mb-1">
+        <h2 className="text-heading font-medium text-foreground tracking-tight mb-1">
           bridge dashboard
         </h2>
         <p className="text-sm text-muted-foreground mb-7">
@@ -2244,7 +2244,7 @@ export default async function Home() {
                     ].map((item) => (
                       <div
                         key={item.label}
-                        className={`flex items-center gap-2 text-[13px] py-[5px] px-2.5 cursor-pointer transition-all ${
+                        className={`flex items-center gap-2 text-ui py-[5px] px-2.5 cursor-pointer transition-all ${
                           item.active
                             ? "text-primary bg-primary/10"
                             : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -2269,7 +2269,7 @@ export default async function Home() {
                 </CardHeader>
                 <CardContent className="">
                   <div className="mb-2">
-                    <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                    <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                       system
                     </span>
                     <div className="text-sm px-2 py-1.5 bg-background border border-border text-primary">
@@ -2277,7 +2277,7 @@ export default async function Home() {
                     </div>
                   </div>
                   <div className="mb-2">
-                    <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                    <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                       sector
                     </span>
                     <div className="text-sm px-2 py-1.5 bg-background border border-border">
@@ -2285,7 +2285,7 @@ export default async function Home() {
                     </div>
                   </div>
                   <div>
-                    <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                    <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                       coords
                     </span>
                     <div className="text-xs px-2 py-1.5 bg-background border border-border">
@@ -2301,10 +2301,10 @@ export default async function Home() {
               {/* Stats row */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <Card className="card-glow p-2.5 px-3">
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                     total credits
                   </span>
-                  <div className="text-[26px] font-medium text-foreground tracking-tight">
+                  <div className="text-stat font-medium text-foreground tracking-tight">
                     1,247,830
                   </div>
                   <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -2312,10 +2312,10 @@ export default async function Home() {
                   </div>
                 </Card>
                 <Card className="card-glow p-2.5 px-3">
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                     kills // losses
                   </span>
-                  <div className="text-[26px] font-medium text-foreground tracking-tight">
+                  <div className="text-stat font-medium text-foreground tracking-tight">
                     142 / 7
                   </div>
                   <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -2323,10 +2323,10 @@ export default async function Home() {
                   </div>
                 </Card>
                 <Card className="card-glow p-2.5 px-3">
-                  <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block">
+                  <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block">
                     systems charted
                   </span>
-                  <div className="text-[26px] font-medium text-foreground tracking-tight">
+                  <div className="text-stat font-medium text-foreground tracking-tight">
                     89
                   </div>
                   <div className="text-xs text-[hsl(var(--smui-green))] mt-0.5">
@@ -2391,7 +2391,7 @@ export default async function Home() {
                     </div>
                     <div className="p-3">
                       <div className="mb-2">
-                        <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
+                        <span className="text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                           auth code
                         </span>
                         <Input type="password" defaultValue="xxxxxxxxxxxx" />

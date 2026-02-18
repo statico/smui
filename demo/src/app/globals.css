@@ -61,6 +61,16 @@
   --color-smui-surface-2: hsl(var(--smui-surface-2));
   --color-smui-surface-3: hsl(var(--smui-surface-3));
   --color-smui-border-hover: hsl(var(--smui-border-hover));
+
+}
+
+/* Typography scale -- non-inline so Tailwind emits real CSS custom properties */
+@theme {
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
 }
 
 /* SpaceMolt dark terminal theme -- light and dark are identical */

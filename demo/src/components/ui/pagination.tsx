@@ -22,7 +22,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-0.5 [&_a]:w-8 [&_a]:h-8 [&_a]:text-[13px] [&_a]:text-muted-foreground", className)}
+      className={cn("flex flex-row items-center gap-0.5 [&_a]:w-8 [&_a]:h-8 [&_a]:text-ui [&_a]:text-muted-foreground", className)}
       {...props}
     />
   )
