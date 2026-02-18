@@ -540,7 +540,14 @@ const mono = JetBrains_Mono({
 // Apply to body
 <body className={mono.className}>
 
-// Typography patterns:
+// Typography scale (CSS variable utilities):
+// text-label   11px  labels, badges, status text
+// text-ui      13px  buttons, nav, table body
+// text-heading 22px  section headings
+// text-stat    26px  big stat numbers
+// text-hero    42px  hero display text
+
+// Common patterns:
 // Card title:  text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal
 // Field label: text-label text-muted-foreground tracking-[1.5px] uppercase block mb-1
 // Big number:  text-stat font-medium text-foreground tracking-tight
@@ -671,6 +678,13 @@ const INSTALL_PALETTE_CODE = `:root {
 
   /* Interactive */
   --smui-border-hover: 216 12% 37%;
+
+  /* Typography scale */
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
 }`;
 
 const INSTALL_THEME_CODE = `@theme inline {
@@ -688,6 +702,15 @@ const INSTALL_THEME_CODE = `@theme inline {
   --color-smui-surface-2: hsl(var(--smui-surface-2));
   --color-smui-surface-3: hsl(var(--smui-surface-3));
   --color-smui-border-hover: hsl(var(--smui-border-hover));
+}
+
+/* Typography scale (must be non-inline to emit CSS vars) */
+@theme {
+  --text-label: 11px;
+  --text-ui: 13px;
+  --text-heading: 22px;
+  --text-stat: 26px;
+  --text-hero: 42px;
 }`;
 
 // ============================================================
