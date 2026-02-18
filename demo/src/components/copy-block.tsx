@@ -15,7 +15,7 @@ export function CopyBlock({
     <div className="flex items-center max-w-[620px] mx-auto border border-border bg-card">
       <code className="flex-1 px-3 py-[7px] text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
         {prefix && (
-          <span className="text-primary font-normal mr-1">{prefix}</span>
+          <span className="text-primary font-normal mr-[1ch]">{prefix}</span>
         )}
         {text}
       </code>

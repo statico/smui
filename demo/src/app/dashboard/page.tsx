@@ -172,7 +172,7 @@ export default function DashboardPage() {
           Sidebar navigation, data readouts, tables, charts combined.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] items-start gap-2">
           {/* Sidebar */}
           <div className="flex flex-col gap-2">
             <Card className="card-glow">
@@ -288,7 +288,7 @@ export default function DashboardPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="">
-                <div className="flex items-end gap-1 h-[100px]">
+                <div className="flex items-end gap-1 h-[160px]">
                   {BAR_DATA.map((bar) => (
                     <div
                       key={bar.label}
@@ -357,7 +357,7 @@ export default function DashboardPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
-                <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
+                <div className="bg-black/35 p-4 flex items-center justify-center">
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button variant="outline" size="sm">
@@ -395,7 +395,7 @@ export default function DashboardPage() {
                   </Dialog>
 
                   {/* Static preview of dialog */}
-                  <div className="bg-card border border-border max-w-[300px] w-full ml-4">
+                  <div className="bg-card border border-border max-w-[280px] w-full ml-4">
                     <div className="px-3 py-2.5 border-b border-border">
                       <div className="text-sm font-medium text-foreground uppercase tracking-wider">
                         confirm jump

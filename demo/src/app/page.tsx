@@ -753,12 +753,44 @@ const SURFACE_LEVELS = [
 function Nav() {
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between h-12 px-6 bg-card border-b border-border">
-      <Link
-        href="/"
-        className="text-sm font-semibold tracking-[2px] uppercase text-foreground"
-      >
-        smui
-      </Link>
+      <div className="flex items-center gap-1">
+        <Link
+          href="/"
+          className="text-sm font-semibold tracking-[2px] uppercase text-foreground mr-4"
+        >
+          smui
+        </Link>
+        <a
+          href="#overview"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          overview
+        </a>
+        <a
+          href="#components"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          components
+        </a>
+        <a
+          href="#dashboard"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          dashboard
+        </a>
+        <a
+          href="#setup"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          setup
+        </a>
+        <a
+          href="#patterns"
+          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+        >
+          patterns
+        </a>
+      </div>
       <a
         href="https://github.com/statico/smui"
         target="_blank"
@@ -840,7 +872,7 @@ function WhatYouGet({
   };
 }) {
   return (
-    <section className="py-14 px-6 max-w-[1200px] mx-auto">
+    <section id="overview" className="py-14 px-6 max-w-[1200px] mx-auto scroll-mt-14">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         overview
       </div>
@@ -1007,11 +1039,11 @@ function WhatYouGet({
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                <div className="px-2.5 py-1.5 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
                   :root
                 </div>
                 <span className="text-xs text-muted-foreground">=</span>
-                <div className="w-8 h-8 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                <div className="px-2.5 py-1.5 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
                   .dark
                 </div>
               </div>
@@ -1747,7 +1779,7 @@ function CargoTable() {
 
 async function Installation() {
   return (
-    <section className="py-14 px-6 max-w-[800px] mx-auto">
+    <section id="setup" className="py-14 px-6 max-w-[800px] mx-auto scroll-mt-14">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         setup
       </div>
@@ -1838,7 +1870,7 @@ async function Installation() {
 
 function DesignGuide() {
   return (
-    <section className="py-14 px-6 max-w-[1200px] mx-auto">
+    <section id="patterns" className="py-14 px-6 max-w-[1200px] mx-auto scroll-mt-14">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
         patterns
       </div>
@@ -2123,7 +2155,7 @@ export default async function Home() {
       <hr className="border-none h-px bg-border m-0" />
 
       {/* Component Examples */}
-      <section className="py-14 px-6 max-w-[1200px] mx-auto">
+      <section id="components" className="py-14 px-6 max-w-[1200px] mx-auto scroll-mt-14">
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
           examples
         </div>
@@ -2181,7 +2213,7 @@ export default async function Home() {
       <hr className="border-none h-px bg-border m-0" />
 
       {/* Dashboard Example */}
-      <section className="py-14 px-6 max-w-[1200px] mx-auto">
+      <section id="dashboard" className="py-14 px-6 max-w-[1200px] mx-auto scroll-mt-14">
         <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-1.5">
           example // layout
         </div>
@@ -2194,7 +2226,7 @@ export default async function Home() {
         </p>
 
         <ShowSource code={CODE_DASHBOARD} html={hlDashboard}>
-          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] items-start gap-2">
             {/* Sidebar */}
             <div className="flex flex-col gap-2">
               <Card className="card-glow">
@@ -2273,7 +2305,7 @@ export default async function Home() {
             </div>
 
             {/* Main content */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 min-h-0">
               {/* Stats row */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <Card className="card-glow p-2.5 px-3">
@@ -2322,7 +2354,7 @@ export default async function Home() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="">
-                  <div className="flex items-end gap-1 h-[100px]">
+                  <div className="flex items-end gap-1 h-[160px]">
                     {[45, 62, 38, 80, 55, 70, 48, 90, 65, 78, 52, 95].map(
                       (h, i) => (
                         <div
@@ -2355,8 +2387,8 @@ export default async function Home() {
                     component // dialog
                   </CardTitle>
                 </CardHeader>
-                <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
-                  <div className="bg-card border border-border w-full max-w-[300px]">
+                <div className="bg-black/35 p-4 flex items-center justify-center">
+                  <div className="bg-card border border-border w-full max-w-[280px]">
                     <div className="p-2.5 px-3 border-b border-border">
                       <div className="text-sm font-medium text-foreground uppercase tracking-wider">
                         confirm jump
@@ -2410,7 +2442,7 @@ export default async function Home() {
         >
           spacemolt
         </a>{" "}
-        // mit license
+        // public domain
         <div className="flex justify-center gap-4 mt-2">
           <a
             href="https://github.com/statico/smui"
