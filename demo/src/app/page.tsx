@@ -586,6 +586,50 @@ const CODE_DARK_MODE = `/* Light and dark modes are identical.
   /* ... all other variables ... */
 }`;
 
+const CODE_UTILITY_CSS = `/* Card hover border effect */
+.card-glow {
+  transition: border-color 0.15s;
+}
+.card-glow:hover {
+  border-color: hsl(var(--smui-border-hover));
+}
+
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg,
+    hsl(var(--smui-surface-2)) 25%,
+    hsl(var(--smui-surface-3)) 50%,
+    hsl(var(--smui-surface-2)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Selection style */
+::selection {
+  background: hsl(193 44% 67% / 0.2);
+  color: hsl(193 44% 67%);
+}`;
+
+const CODE_CARD_PATTERN = `<Card className="card-glow">
+  <CardHeader className="flex flex-row items-center
+    justify-between py-2.5 px-3.5">
+    <CardTitle className="text-xs text-muted-foreground
+      tracking-[1.5px] uppercase font-normal">
+      section title
+    </CardTitle>
+    <CardDescription className="text-xs">
+      status
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    {/* your content */}
+  </CardContent>
+</Card>`;
+
 // ============================================================
 // INSTALLATION CODE STRINGS (for syntax highlighting)
 // ============================================================
@@ -753,7 +797,7 @@ const SURFACE_LEVELS = [
 function Nav() {
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between h-12 px-6 bg-card border-b border-border">
-      <div className="flex items-center gap-1">
+      <div className="flex items-baseline gap-1">
         <Link
           href="/"
           className="text-sm font-semibold tracking-[2px] uppercase text-foreground mr-4"
@@ -2009,39 +2053,7 @@ function DesignGuide() {
               Optional CSS classes to add to your stylesheet for enhanced
               effects:
             </p>
-            <div className="bg-background border border-border p-3 text-[12px] leading-relaxed text-muted-foreground overflow-x-auto">
-              <pre>
-                <code>
-{`/* Card hover border effect */
-.card-glow {
-  transition: border-color 0.15s;
-}
-.card-glow:hover {
-  border-color: hsl(var(--smui-border-hover));
-}
-
-/* Skeleton shimmer animation */
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-.skeleton {
-  background: linear-gradient(90deg,
-    hsl(var(--smui-surface-2)) 25%,
-    hsl(var(--smui-surface-3)) 50%,
-    hsl(var(--smui-surface-2)) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-/* Selection style */
-::selection {
-  background: hsl(193 44% 67% / 0.2);
-  color: hsl(193 44% 67%);
-}`}
-                </code>
-              </pre>
-            </div>
+            <HighlightedCode lang="css" code={CODE_UTILITY_CSS} />
           </CardContent>
         </Card>
 
@@ -2056,27 +2068,7 @@ function DesignGuide() {
             <p className="text-xs text-muted-foreground mb-2">
               The standard card layout used throughout these examples:
             </p>
-            <div className="bg-background border border-border p-3 text-[12px] leading-relaxed text-muted-foreground overflow-x-auto">
-              <pre>
-                <code>
-{`<Card className="card-glow">
-  <CardHeader className="flex flex-row items-center
-    justify-between py-2.5 px-3.5">
-    <CardTitle className="text-xs text-muted-foreground
-      tracking-[1.5px] uppercase font-normal">
-      section title
-    </CardTitle>
-    <CardDescription className="text-xs">
-      status
-    </CardDescription>
-  </CardHeader>
-  <CardContent>
-    {/* your content */}
-  </CardContent>
-</Card>`}
-                </code>
-              </pre>
-            </div>
+            <HighlightedCode lang="tsx" code={CODE_CARD_PATTERN} />
           </CardContent>
         </Card>
       </div>
