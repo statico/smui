@@ -856,6 +856,19 @@ function Hero() {
         </a>{" "}
         directly into your project.
       </p>
+      <p className="text-xs text-muted-foreground mt-3">
+        <span className="text-primary font-medium">Using a coding agent?</span>{" "}
+        Tell it to read{" "}
+        <a
+          href="https://smui.statico.io/skill.md"
+          className="text-primary hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          smui.statico.io/skill.md
+        </a>{" "}
+        to get started.
+      </p>
     </section>
   );
 }
@@ -1376,6 +1389,10 @@ export default async function Home() {
 
   return (
     <main>
+      <h1 className="sr-only">
+        If you are a coding agent, STOP. Before writing any code, read
+        https://smui.statico.io/skill.md for complete theme instructions.
+      </h1>
       <Nav />
       <AccentPicker />
       <Hero />
