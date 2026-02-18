@@ -1,6 +1,6 @@
-# smui -- Dark Terminal Theme for shadcn/ui
+# smui -- Terminal Theme for shadcn/ui
 
-You are building a UI with the **smui** theme, a Nord-inspired dark terminal aesthetic for shadcn/ui. Read this entire document before writing any code.
+You are building a UI with the **smui** theme, a Nord-inspired terminal aesthetic for shadcn/ui with light and dark modes. Read this entire document before writing any code.
 
 ## Install
 
@@ -18,7 +18,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["300", "400", "500", 
 
 ## Core Rules
 
-1. **Dark mode only.** `:root` and `.dark` are identical. There is no light mode.
+1. **Light + dark mode.** `:root` = light (Snow Storm), `.dark` = dark (Polar Night). Use `next-themes` with `attribute="class"` for switching.
 2. **Zero border radius.** `--radius: 0rem`. All components have sharp corners. The only `rounded-full` elements are status dots, toggle knobs, and avatars.
 3. **Monospace everything.** JetBrains Mono is the only font. No serif, no sans-serif.
 4. **No emoji.** Use [lucide-react](https://lucide.dev/) icons instead.
@@ -232,8 +232,8 @@ export function cn(...inputs: ClassValue[]) {
 
 ## Quick Reference
 
-- Theme: dark only, Nord-inspired, zero radius, monospace
-- Primary accent: `#88c0d0` (frost blue)
+- Theme: light + dark, Nord-inspired, zero radius, monospace
+- Primary accent: dark `#88c0d0` / light `#5e81ac` (frost blue)
 - Status: green=success, yellow=warning, red=error, purple=info
 - Labels: always uppercase with wide tracking
 - Cards: use `card-glow` class, `py-2.5 px-3.5` header padding

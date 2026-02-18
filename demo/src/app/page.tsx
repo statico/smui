@@ -68,6 +68,7 @@ import {
   Crosshair,
   Github,
 } from "lucide-react";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import {
   VesselConfig,
   CrewRoster,
@@ -588,23 +589,20 @@ const CODE_ACCENT_SWITCHING = `function applyAccent(hex: string) {
   root.style.setProperty("--sidebar-accent", \`hsl(\${dim})\`);
 }`;
 
-const CODE_DARK_MODE = `/* Light and dark modes are identical.
-   Spaceship terminals don't have light mode. */
-
+const CODE_DARK_MODE = `/* Light mode: Nord Snow Storm */
 :root {
-  --background: hsl(213 16% 12%);
-  --foreground: hsl(213 27% 88%);
-  --primary: hsl(193 44% 67%);
-  --card: hsl(217 16% 15.5%);
-  /* ... all other variables ... */
+  --background: hsl(218 27% 94%);  /* #eceff4 */
+  --foreground: hsl(220 16% 22%);  /* #2e3440 */
+  --primary: hsl(213 32% 52%);     /* #5e81ac */
+  --card: hsl(218 27% 92%);        /* #e5e9f0 */
 }
 
+/* Dark mode: Nord Polar Night */
 .dark {
-  --background: hsl(213 16% 12%);  /* identical */
-  --foreground: hsl(213 27% 88%);  /* identical */
-  --primary: hsl(193 44% 67%);     /* identical */
-  --card: hsl(217 16% 15.5%);      /* identical */
-  /* ... all other variables ... */
+  --background: hsl(213 16% 12%);  /* #1a1e24 */
+  --foreground: hsl(213 27% 88%);  /* #d8dee9 */
+  --primary: hsl(193 44% 67%);     /* #88c0d0 */
+  --card: hsl(217 16% 15.5%);      /* #21262e */
 }`;
 
 const CODE_UTILITY_CSS = `/* Card hover border effect */
@@ -795,16 +793,19 @@ function Nav() {
           patterns
         </a>
       </div>
-      <a
-        href="https://github.com/statico/smui"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
-        title="GitHub"
-      >
-        <Github className="w-[18px] h-[18px]" />
-        <span className="text-xs uppercase tracking-wider">github</span>
-      </a>
+      <div className="flex items-center gap-1.5">
+        <ThemeSwitcher />
+        <a
+          href="https://github.com/statico/smui"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          title="GitHub"
+        >
+          <Github className="w-[18px] h-[18px]" />
+          <span className="text-xs uppercase tracking-wider">github</span>
+        </a>
+      </div>
     </nav>
   );
 }
@@ -823,7 +824,7 @@ function Hero() {
         smui
       </h1>
       <p className="text-[15px] text-muted-foreground max-w-[520px] mx-auto mb-7 leading-relaxed">
-        A dark terminal theme for{" "}
+        A terminal theme for{" "}
         <a
           href="https://ui.shadcn.com"
           className="text-primary hover:underline"
@@ -1047,27 +1048,27 @@ function WhatYouGet({
           </Card>
         </ShowSource>
 
-        {/* Dark only */}
+        {/* Light + Dark */}
         <ShowSource code={CODE_DARK_MODE} html={hl.darkMode}>
           <Card className="card-glow">
             <CardHeader className="py-2.5 px-3.5">
               <CardTitle className="text-xs text-muted-foreground tracking-[1.5px] uppercase font-normal">
-                dark mode only
+                light + dark mode
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2 mb-2">
-                <div className="px-2.5 py-1.5 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                <div className="px-2.5 py-1.5 border border-border flex items-center justify-center text-xs" style={{ background: "#eceff4", color: "#2e3440" }}>
                   :root
                 </div>
-                <span className="text-xs text-muted-foreground">=</span>
-                <div className="px-2.5 py-1.5 bg-background border border-border flex items-center justify-center text-xs text-muted-foreground">
+                <span className="text-xs text-muted-foreground">/</span>
+                <div className="px-2.5 py-1.5 border border-border flex items-center justify-center text-xs" style={{ background: "#1a1e24", color: "#d8dee9" }}>
                   .dark
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
-                Light and dark modes are identical. Spaceship terminals
-                don&apos;t have light mode.
+                Snow Storm light mode and Polar Night dark mode. Both
+                fully themed with adjusted contrast.
               </p>
             </CardContent>
           </Card>
