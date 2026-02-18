@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 const PRESETS = [
   { name: "Frost 2", hex: "#88c0d0" },
@@ -48,8 +48,17 @@ function darkenForAccentBg(hex: string): string {
   return `${Math.round(h * 360)} ${Math.round(Math.min(s, 0.1) * 100)}% 16%`;
 }
 
-export function AccentPicker() {
-  const [active, setActive] = useState("#88c0d0");
+export function AccentPicker({
+  variant = "bar",
+  initialAccent,
+}: {
+  variant?: "bar" | "grid";
+  initialAccent?: string;
+}) {
+  const defaultColor = initialAccent && /^#[0-9a-fA-F]{6}$/.test(initialAccent)
+    ? initialAccent
+    : "#88c0d0";
+  const [active, setActive] = useState(defaultColor);
 
   const applyAccent = useCallback((hex: string) => {
     setActive(hex);
@@ -67,6 +76,45 @@ export function AccentPicker() {
     root.style.setProperty("--accent", `hsl(${dimHsl})`);
     root.style.setProperty("--sidebar-accent", `hsl(${dimHsl})`);
   }, []);
+
+  useEffect(() => {
+    if (defaultColor !== "#88c0d0") {
+      applyAccent(defaultColor);
+    }
+  }, [defaultColor, applyAccent]);
+
+  if (variant === "grid") {
+    return (
+      <div>
+        <div className="flex flex-wrap gap-1.5">
+          {PRESETS.map((p) => (
+            <button
+              key={p.hex}
+              title={p.name}
+              onClick={() => applyAccent(p.hex)}
+              className="w-7 h-7 border-2 cursor-pointer transition-colors"
+              style={{
+                backgroundColor: p.hex,
+                borderColor:
+                  active === p.hex ? "hsl(219 28% 94%)" : "transparent",
+              }}
+            />
+          ))}
+          <input
+            type="color"
+            value={active}
+            onChange={(e) => applyAccent(e.target.value)}
+            title="Custom accent"
+            className="w-7 h-7 border border-border cursor-pointer bg-transparent p-0 [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+          />
+        </div>
+        <div className="text-label text-muted-foreground tracking-wider mt-2">
+          {PRESETS.find((p) => p.hex === active)?.name ?? "Custom"}{" "}
+          <span className="text-primary">{active}</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center gap-1.5 py-2 px-5 bg-card border-b border-border text-xs text-muted-foreground tracking-widest uppercase">
