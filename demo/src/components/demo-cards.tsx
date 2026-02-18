@@ -75,12 +75,6 @@ const CREW = [
     status: "online" as const,
   },
   {
-    code: "NAV",
-    name: "Lyra Chen",
-    role: "NAVIGATION",
-    status: "online" as const,
-  },
-  {
     code: "WPN",
     name: "Drak Morin",
     role: "WEAPONS OFFICER",
