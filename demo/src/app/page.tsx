@@ -799,10 +799,11 @@ function Nav() {
         href="https://github.com/statico/smui"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-muted-foreground hover:text-foreground transition-colors"
+        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
         title="GitHub"
       >
         <Github className="w-[18px] h-[18px]" />
+        <span className="text-xs uppercase tracking-wider">github</span>
       </a>
     </nav>
   );
