@@ -46,21 +46,21 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  /* SpaceMolt extended palette */
-  --color-smui-frost-1: var(--smui-frost-1);
-  --color-smui-frost-2: var(--smui-frost-2);
-  --color-smui-frost-3: var(--smui-frost-3);
-  --color-smui-frost-4: var(--smui-frost-4);
-  --color-smui-red: var(--smui-red);
-  --color-smui-orange: var(--smui-orange);
-  --color-smui-yellow: var(--smui-yellow);
-  --color-smui-green: var(--smui-green);
-  --color-smui-purple: var(--smui-purple);
-  --color-smui-surface-0: var(--smui-surface-0);
-  --color-smui-surface-1: var(--smui-surface-1);
-  --color-smui-surface-2: var(--smui-surface-2);
-  --color-smui-surface-3: var(--smui-surface-3);
-  --color-smui-border-hover: var(--smui-border-hover);
+  /* SpaceMolt extended palette (wrap raw HSL triplets with hsl()) */
+  --color-smui-frost-1: hsl(var(--smui-frost-1));
+  --color-smui-frost-2: hsl(var(--smui-frost-2));
+  --color-smui-frost-3: hsl(var(--smui-frost-3));
+  --color-smui-frost-4: hsl(var(--smui-frost-4));
+  --color-smui-red: hsl(var(--smui-red));
+  --color-smui-orange: hsl(var(--smui-orange));
+  --color-smui-yellow: hsl(var(--smui-yellow));
+  --color-smui-green: hsl(var(--smui-green));
+  --color-smui-purple: hsl(var(--smui-purple));
+  --color-smui-surface-0: hsl(var(--smui-surface-0));
+  --color-smui-surface-1: hsl(var(--smui-surface-1));
+  --color-smui-surface-2: hsl(var(--smui-surface-2));
+  --color-smui-surface-3: hsl(var(--smui-surface-3));
+  --color-smui-border-hover: hsl(var(--smui-border-hover));
 }
 
 /* SpaceMolt dark terminal theme -- light and dark are identical */
@@ -99,21 +99,21 @@
   --sidebar-border: hsl(217 17% 28%);
   --sidebar-ring: hsl(193 44% 67%);
 
-  /* SpaceMolt extended palette */
-  --smui-frost-1: hsl(176 25% 65%);
-  --smui-frost-2: hsl(193 44% 67%);
-  --smui-frost-3: hsl(210 34% 63%);
-  --smui-frost-4: hsl(213 32% 52%);
-  --smui-red: hsl(355 52% 64%);
-  --smui-orange: hsl(14 51% 63%);
-  --smui-yellow: hsl(40 71% 73%);
-  --smui-green: hsl(92 28% 65%);
-  --smui-purple: hsl(311 24% 63%);
-  --smui-surface-0: hsl(213 16% 12%);
-  --smui-surface-1: hsl(217 16% 15.5%);
-  --smui-surface-2: hsl(216 15% 19%);
-  --smui-surface-3: hsl(215 14% 22%);
-  --smui-border-hover: hsl(216 12% 37%);
+  /* SpaceMolt extended palette (raw HSL triplets for use in hsl() with optional alpha) */
+  --smui-frost-1: 176 25% 65%;
+  --smui-frost-2: 193 44% 67%;
+  --smui-frost-3: 210 34% 63%;
+  --smui-frost-4: 213 32% 52%;
+  --smui-red: 355 52% 64%;
+  --smui-orange: 14 51% 63%;
+  --smui-yellow: 40 71% 73%;
+  --smui-green: 92 28% 65%;
+  --smui-purple: 311 24% 63%;
+  --smui-surface-0: 213 16% 12%;
+  --smui-surface-1: 217 16% 15.5%;
+  --smui-surface-2: 216 15% 19%;
+  --smui-surface-3: 215 14% 22%;
+  --smui-border-hover: 216 12% 37%;
 }
 
 .dark {
@@ -150,20 +150,20 @@
   --sidebar-accent-foreground: hsl(193 44% 67%);
   --sidebar-border: hsl(217 17% 28%);
   --sidebar-ring: hsl(193 44% 67%);
-  --smui-frost-1: hsl(176 25% 65%);
-  --smui-frost-2: hsl(193 44% 67%);
-  --smui-frost-3: hsl(210 34% 63%);
-  --smui-frost-4: hsl(213 32% 52%);
-  --smui-red: hsl(355 52% 64%);
-  --smui-orange: hsl(14 51% 63%);
-  --smui-yellow: hsl(40 71% 73%);
-  --smui-green: hsl(92 28% 65%);
-  --smui-purple: hsl(311 24% 63%);
-  --smui-surface-0: hsl(213 16% 12%);
-  --smui-surface-1: hsl(217 16% 15.5%);
-  --smui-surface-2: hsl(216 15% 19%);
-  --smui-surface-3: hsl(215 14% 22%);
-  --smui-border-hover: hsl(216 12% 37%);
+  --smui-frost-1: 176 25% 65%;
+  --smui-frost-2: 193 44% 67%;
+  --smui-frost-3: 210 34% 63%;
+  --smui-frost-4: 213 32% 52%;
+  --smui-red: 355 52% 64%;
+  --smui-orange: 14 51% 63%;
+  --smui-yellow: 40 71% 73%;
+  --smui-green: 92 28% 65%;
+  --smui-purple: 311 24% 63%;
+  --smui-surface-0: 213 16% 12%;
+  --smui-surface-1: 217 16% 15.5%;
+  --smui-surface-2: 216 15% 19%;
+  --smui-surface-3: 215 14% 22%;
+  --smui-border-hover: 216 12% 37%;
 }
 
 @layer base {
@@ -181,6 +181,17 @@
 }
 .card-glow:hover {
   border-color: hsl(var(--smui-border-hover));
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, hsl(var(--smui-surface-2)) 25%, hsl(var(--smui-surface-3)) 50%, hsl(var(--smui-surface-2)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
 
 /* Typing cursor blink */

@@ -63,7 +63,7 @@ export function AccentPicker() {
     root.style.setProperty("--sidebar-accent-foreground", `hsl(${hsl})`);
     root.style.setProperty("--sidebar-ring", `hsl(${hsl})`);
     root.style.setProperty("--chart-1", `hsl(${hsl})`);
-    root.style.setProperty("--smui-frost-2", `hsl(${hsl})`);
+    root.style.setProperty("--smui-frost-2", hsl);
     root.style.setProperty("--accent", `hsl(${dimHsl})`);
     root.style.setProperty("--sidebar-accent", `hsl(${dimHsl})`);
   }, []);

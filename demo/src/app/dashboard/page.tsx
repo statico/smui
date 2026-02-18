@@ -209,7 +209,7 @@ export default function DashboardPage() {
                   location
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-3.5 pt-0 space-y-2">
+              <CardContent className="space-y-2">
                 <div>
                   <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
                     system
@@ -287,7 +287,7 @@ export default function DashboardPage() {
                   trend: positive
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-3.5 pt-0">
+              <CardContent className="">
                 <div className="flex items-end gap-1 h-[100px]">
                   {BAR_DATA.map((bar) => (
                     <div
