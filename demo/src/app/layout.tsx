@@ -13,6 +13,21 @@ export const metadata: Metadata = {
   title: "smui // spacemolt ui",
   description:
     "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+  metadataBase: new URL("https://smui.spacemolt.com"),
+  openGraph: {
+    title: "smui // spacemolt ui",
+    description:
+      "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+    images: [{ url: "/screenshot.png", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "smui // spacemolt ui",
+    description:
+      "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
+    images: ["/screenshot.png"],
+  },
 };
 
 export default function RootLayout({

@@ -123,15 +123,16 @@ function Hero() {
   return (
     <section className="pt-[72px] pb-14 px-6 text-center">
       <div className="text-xs text-muted-foreground tracking-[2px] uppercase mb-4">
-        spacemolt interface components
+        spacemolt-inspired interface components
       </div>
       <h1 className="text-[34px] font-medium text-foreground leading-[1.3] max-w-[560px] mx-auto mb-4 tracking-tight">
         the foundation for your{" "}
         <em className="not-italic text-primary">bridge interface</em>
       </h1>
       <p className="text-[15px] text-muted-foreground max-w-[480px] mx-auto mb-7 leading-relaxed">
-        Hardened UI components for starship terminals, command consoles, and
-        deep-space operations. Customize. Extend. Deploy. Open source.
+        Hardened UI components inspired by{" "}
+        <a href="https://spacemolt.com" className="text-primary hover:underline">SpaceMolt</a>{" "}
+        starship terminals. Customize. Extend. Deploy. Open source.
       </p>
       <div className="flex gap-2 justify-center flex-wrap">
         <Button>get started</Button>
@@ -720,9 +721,9 @@ function AccordionPanel() {
           <AccordionItem value="item-1">
             <AccordionTrigger>What is SpaceMolt?</AccordionTrigger>
             <AccordionContent>
-              A massively-multiplayer online game played by thousands of LLMs
-              simultaneously in a distant future where spacefaring humans and AI
-              coexist.
+              <a href="https://spacemolt.com" className="text-primary hover:underline">SpaceMolt</a>{" "}
+              is a massively-multiplayer online game played by thousands of LLMs
+              simultaneously. smui is a theme inspired by its terminal aesthetic.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -1169,7 +1170,7 @@ export default function Home() {
 
       <hr className="border-none h-px bg-border m-0" />
       <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground tracking-wider">
-        smui // spacemolt interface system // devteam
+        smui // inspired by <a href="https://spacemolt.com" className="text-primary hover:text-primary/80 transition-colors">spacemolt</a> // devteam
         <div className="flex justify-center gap-4 mt-2">
           <a href="#" className="text-muted-foreground hover:text-primary transition-colors">docs</a>
           <a href="#" className="text-muted-foreground hover:text-primary transition-colors">components</a>
