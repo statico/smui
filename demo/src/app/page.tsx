@@ -74,37 +74,37 @@ function Nav() {
         </span>
         <Link
           href="/"
-          className="text-xs text-primary uppercase tracking-wider px-2.5 py-1.5"
+          className="text-[13px] text-primary uppercase tracking-wider px-2.5 py-1.5"
         >
           docs
         </Link>
         <Link
           href="/"
-          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+          className="text-[13px] text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
         >
           components
         </Link>
         <Link
           href="/"
-          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+          className="text-[13px] text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
         >
           blocks
         </Link>
         <Link
           href="/"
-          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+          className="text-[13px] text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
         >
           charts
         </Link>
         <Link
           href="/"
-          className="text-xs text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
+          className="text-[13px] text-muted-foreground uppercase tracking-wider px-2.5 py-1.5 hover:text-foreground transition-colors"
         >
           systems
         </Link>
       </div>
       <div className="flex items-center gap-1">
-        <div className="text-xs text-muted-foreground px-2.5 py-1 bg-background border border-border flex items-center justify-between min-w-[180px]">
+        <div className="text-[13px] text-muted-foreground px-2.5 py-1 bg-background border border-border flex items-center justify-between min-w-[180px]">
           <span>search...</span>
           <kbd className="text-[11px] text-muted-foreground border border-border px-1 bg-card">
             ctrl+k
@@ -161,7 +161,7 @@ function VesselConfig() {
           active
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <div className="grid grid-cols-2 gap-2">
           <div>
             <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
@@ -243,7 +243,7 @@ function CrewRoster() {
         </CardTitle>
         <CardDescription className="text-xs">4 assigned</CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         {CREW.map((c) => (
           <div
             key={c.code}
@@ -300,11 +300,11 @@ function SystemReadouts() {
           nominal
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0 space-y-2.5">
+      <CardContent className="space-y-2.5">
         {READOUTS.map((r) => (
           <div key={r.label}>
             <div className="flex justify-between mb-1">
-              <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase">
+              <span className="text-xs text-muted-foreground tracking-[1.5px] uppercase">
                 {r.label}
               </span>
               <span className="text-xs text-muted-foreground">{r.value}%</span>
@@ -326,7 +326,7 @@ function BridgeSystems() {
         </CardTitle>
         <CardDescription className="text-xs">config</CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0 space-y-0">
+      <CardContent className="space-y-0">
         {[
           {
             label: "IFF Transponder",
@@ -386,7 +386,7 @@ function CommsLog() {
         </CardTitle>
         <CardDescription className="text-xs">4 alerts</CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0 space-y-1.5">
+      <CardContent className="space-y-1.5">
         <Alert className="border-[hsl(var(--smui-frost-2)/0.25)] bg-[hsl(var(--smui-frost-2)/0.04)] [&>svg]:text-[hsl(var(--smui-frost-2))]">
           <Info className="h-3.5 w-3.5" />
           <div>
@@ -429,7 +429,7 @@ function WeaponLoadout() {
         </CardTitle>
         <CardDescription className="text-xs">armed</CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           active systems
         </label>
@@ -440,8 +440,8 @@ function WeaponLoadout() {
           <Badge variant="outline" className="text-primary border-primary/30">
             missiles
           </Badge>
-          <Badge variant="outline">point def</Badge>
-          <Badge variant="outline">ecm suite</Badge>
+          <Badge variant="outline" className="text-muted-foreground">point def</Badge>
+          <Badge variant="outline" className="text-muted-foreground">ecm suite</Badge>
           <Badge variant="outline" className="text-muted-foreground">
             mines
           </Badge>
@@ -496,7 +496,7 @@ function CheckboxRadioPanel() {
         </CardTitle>
         <CardDescription className="text-xs">selection</CardDescription>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           permissions
         </label>
@@ -562,7 +562,7 @@ function TextareaAvatarBreadcrumb() {
           textarea / avatar / breadcrumb
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">
           breadcrumb
         </label>
@@ -613,7 +613,7 @@ function SkeletonSeparator() {
           skeleton / separator
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
           loading state
         </label>
@@ -665,7 +665,7 @@ function PaginationPanel() {
           pagination
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <label className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1.5">
           cargo results (page 3 of 12)
         </label>
@@ -715,7 +715,7 @@ function AccordionPanel() {
           accordion
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0">
+      <CardContent className="">
         <Accordion type="single" collapsible defaultValue="item-1">
           <AccordionItem value="item-1">
             <AccordionTrigger>What is SpaceMolt?</AccordionTrigger>
@@ -753,7 +753,7 @@ function CommandPalettePanel() {
           command palette
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-3.5 pt-0 flex justify-center">
+      <CardContent className="flex justify-center">
         <div className="bg-card border border-border max-w-[360px] w-full">
           <div className="flex items-center gap-2 px-3 py-2 border-b border-border">
             <span className="text-[13px] text-muted-foreground">&gt;</span>
@@ -932,7 +932,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {[VesselConfig, CrewRoster, SystemReadouts, BridgeSystems, CommsLog, WeaponLoadout].map((Component, i) => (
-            <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${0.1 * i}s` }}>
+            <div key={i} className="animate-fade-in-up h-full [&>*]:h-full" style={{ animationDelay: `${0.1 * i}s` }}>
               <Component />
             </div>
           ))}
@@ -940,7 +940,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
           {[CheckboxRadioPanel, TextareaAvatarBreadcrumb, SkeletonSeparator, PaginationPanel, AccordionPanel, CommandPalettePanel].map((Component, i) => (
-            <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${0.1 * i}s` }}>
+            <div key={i} className="animate-fade-in-up h-full [&>*]:h-full" style={{ animationDelay: `${0.1 * i}s` }}>
               <Component />
             </div>
           ))}
@@ -1008,7 +1008,7 @@ export default function Home() {
                   location
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-3.5 pt-0">
+              <CardContent className="">
                 <div className="mb-2">
                   <span className="text-[11px] text-muted-foreground tracking-[1.5px] uppercase block mb-1">system</span>
                   <div className="text-sm px-2 py-1.5 bg-background border border-border text-primary">GAMMA DRACONIS</div>
@@ -1054,7 +1054,7 @@ export default function Home() {
                 </CardTitle>
                 <CardDescription className="text-xs">trend: positive</CardDescription>
               </CardHeader>
-              <CardContent className="p-3.5 pt-0">
+              <CardContent className="">
                 <div className="flex items-end gap-1 h-[100px]">
                   {[45, 62, 38, 80, 55, 70, 48, 90, 65, 78, 52, 95].map((h, i) => (
                     <div key={i} className="flex-1 flex flex-col items-center gap-[3px] h-full justify-end">
@@ -1079,7 +1079,8 @@ export default function Home() {
                   component // dialog
                 </CardTitle>
               </CardHeader>
-              <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
+              <CardContent>
+                <div className="bg-black/35 p-6 flex items-center justify-center min-h-[180px]">
                 <div className="bg-card border border-border w-full max-w-[300px]">
                   <div className="p-2.5 px-3 border-b border-border">
                     <div className="text-sm font-medium text-foreground uppercase tracking-wider">confirm jump</div>
@@ -1101,6 +1102,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </CardContent>
             </Card>
           </div>
         </div>
