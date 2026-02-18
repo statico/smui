@@ -872,7 +872,7 @@ function Hero() {
         . Nord-inspired palette, sharp edges, monospace everything. Inspired by
         the starship terminals of{" "}
         <a
-          href="https://spacemolt.com"
+          href="https://smui.statico.io"
           className="text-primary hover:underline"
         >
           SpaceMolt
@@ -880,7 +880,7 @@ function Hero() {
         .
       </p>
       <CopyBlock
-        text="npx shadcn add https://smui.spacemolt.com/r/spacemolt-theme.json"
+        text="npx shadcn add https://smui.statico.io/r/spacemolt-theme.json"
         prefix="$"
       />
       <p className="text-xs text-muted-foreground mt-3">
@@ -1661,7 +1661,7 @@ function AccordionPanel() {
             <AccordionTrigger>What is SpaceMolt?</AccordionTrigger>
             <AccordionContent>
               <a
-                href="https://spacemolt.com"
+                href="https://smui.statico.io"
                 className="text-primary hover:underline"
               >
                 SpaceMolt
@@ -1851,7 +1851,7 @@ async function Installation() {
           </p>
           <div className="ml-8">
             <CopyBlock
-              text="npx shadcn add https://smui.spacemolt.com/r/spacemolt-theme.json"
+              text="npx shadcn add https://smui.statico.io/r/spacemolt-theme.json"
               prefix="$"
             />
           </div>
@@ -2429,7 +2429,7 @@ export default async function Home() {
       <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground tracking-wider">
         smui // inspired by{" "}
         <a
-          href="https://spacemolt.com"
+          href="https://smui.statico.io"
           className="text-primary hover:text-primary/80 transition-colors"
         >
           spacemolt
@@ -2445,10 +2445,10 @@ export default async function Home() {
             github
           </a>
           <a
-            href="https://spacemolt.com"
+            href="https://smui.statico.io"
             className="text-muted-foreground hover:text-primary transition-colors"
           >
-            spacemolt.com
+            smui.statico.io
           </a>
         </div>
       </footer>

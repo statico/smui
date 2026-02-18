@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "smui // spacemolt ui",
     description:
       "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
-    images: [{ url: "https://statico-misc.s3.amazonaws.com/smui.png", width: 1200, height: 630 }],
+    images: [{ url: "https://smui.statico.io/screenshot.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "smui // spacemolt ui",
     description:
       "Nord-inspired dark terminal theme for shadcn/ui. Hardened components for starship terminals.",
-    images: ["https://statico-misc.s3.amazonaws.com/smui.png"],
+    images: ["https://smui.statico.io/screenshot.png"],
   },
 };
 
