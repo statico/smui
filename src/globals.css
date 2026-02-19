@@ -4,65 +4,65 @@
   /* shadcn/ui base variables (HSL) -- Light mode (Nord Snow Storm) */
   --background: 218 27% 94%;
   --foreground: 220 16% 22%;
-  --card: 218 27% 92%;
+  --card: 218 27% 89%;
   --card-foreground: 220 16% 22%;
-  --popover: 218 27% 92%;
+  --popover: 218 27% 89%;
   --popover-foreground: 220 16% 22%;
-  --primary: 213 32% 44%;
+  --primary: 213 32% 40%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 219 28% 88%;
+  --secondary: 219 28% 84%;
   --secondary-foreground: 220 16% 22%;
-  --muted: 219 28% 88%;
-  --muted-foreground: 220 17% 33%;
-  --accent: 213 20% 90%;
-  --accent-foreground: 213 32% 44%;
-  --destructive: 355 60% 48%;
+  --muted: 219 28% 84%;
+  --muted-foreground: 220 17% 28%;
+  --accent: 213 20% 86%;
+  --accent-foreground: 213 32% 40%;
+  --destructive: 355 60% 45%;
   --destructive-foreground: 0 0% 100%;
-  --border: 219 18% 80%;
-  --input: 219 18% 80%;
-  --ring: 213 32% 44%;
+  --border: 219 18% 72%;
+  --input: 219 18% 72%;
+  --ring: 213 32% 40%;
   --radius: 0rem;
 
   /* Chart colors */
-  --chart-1: 213 32% 52%;
-  --chart-2: 210 34% 45%;
-  --chart-3: 92 30% 40%;
-  --chart-4: 40 70% 38%;
-  --chart-5: 311 28% 45%;
+  --chart-1: 213 32% 44%;
+  --chart-2: 210 34% 42%;
+  --chart-3: 92 30% 36%;
+  --chart-4: 40 70% 35%;
+  --chart-5: 311 28% 42%;
 
   /* Sidebar */
-  --sidebar-background: 218 27% 92%;
+  --sidebar-background: 218 27% 89%;
   --sidebar-foreground: 220 16% 22%;
-  --sidebar-primary: 213 32% 44%;
+  --sidebar-primary: 213 32% 40%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 213 20% 90%;
-  --sidebar-accent-foreground: 213 32% 44%;
-  --sidebar-border: 219 18% 80%;
-  --sidebar-ring: 213 32% 44%;
+  --sidebar-accent: 213 20% 86%;
+  --sidebar-accent-foreground: 213 32% 40%;
+  --sidebar-border: 219 18% 72%;
+  --sidebar-ring: 213 32% 40%;
 
   /* ---- SpaceMolt extended palette ---- */
 
   /* Frost (darkened for light backgrounds) */
-  --smui-frost-1: 176 30% 40%;
-  --smui-frost-2: 193 40% 42%;
-  --smui-frost-3: 210 34% 45%;
-  --smui-frost-4: 213 32% 40%;
+  --smui-frost-1: 176 30% 35%;
+  --smui-frost-2: 193 40% 38%;
+  --smui-frost-3: 210 34% 40%;
+  --smui-frost-4: 213 32% 36%;
 
   /* Aurora (darkened for light backgrounds) */
-  --smui-red: 355 55% 48%;
-  --smui-orange: 14 55% 48%;
-  --smui-yellow: 40 70% 38%;
-  --smui-green: 92 35% 38%;
-  --smui-purple: 311 28% 45%;
+  --smui-red: 355 55% 44%;
+  --smui-orange: 14 55% 44%;
+  --smui-yellow: 40 70% 34%;
+  --smui-green: 92 35% 34%;
+  --smui-purple: 311 28% 40%;
 
   /* Surface hierarchy (Snow Storm) */
   --smui-surface-0: 218 27% 94%;
-  --smui-surface-1: 218 27% 92%;
-  --smui-surface-2: 219 28% 88%;
-  --smui-surface-3: 219 20% 82%;
+  --smui-surface-1: 218 27% 89%;
+  --smui-surface-2: 219 28% 84%;
+  --smui-surface-3: 219 20% 76%;
 
   /* Interactive border state */
-  --smui-border-hover: 220 17% 60%;
+  --smui-border-hover: 220 17% 50%;
 
   /* Font */
   --font-sans: 'JetBrains Mono', monospace;
