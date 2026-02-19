@@ -130,6 +130,8 @@ export function AccentPicker({
     }
   }, [defaultColor, applyAccent]);
 
+  const activeBorder = mounted && resolvedTheme === "dark" ? "#fff" : "#2e3440";
+
   if (variant === "grid") {
     return (
       <div>
@@ -143,7 +145,7 @@ export function AccentPicker({
               style={{
                 backgroundColor: p.hex,
                 borderColor:
-                  active === p.hex ? "hsl(var(--foreground))" : "transparent",
+                  active === p.hex ? activeBorder : "transparent",
               }}
             />
           ))}
@@ -174,7 +176,7 @@ export function AccentPicker({
           className="w-[18px] h-[18px] border-2 cursor-pointer transition-colors"
           style={{
             backgroundColor: p.hex,
-            borderColor: active === p.hex ? "hsl(var(--foreground))" : "transparent",
+            borderColor: active === p.hex ? activeBorder : "transparent",
           }}
         />
       ))}
