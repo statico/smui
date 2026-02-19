@@ -143,7 +143,7 @@ export function AccentPicker({
               style={{
                 backgroundColor: p.hex,
                 borderColor:
-                  active === p.hex ? "hsl(219 28% 94%)" : "transparent",
+                  active === p.hex ? "hsl(var(--foreground))" : "transparent",
               }}
             />
           ))}
@@ -174,7 +174,7 @@ export function AccentPicker({
           className="w-[18px] h-[18px] border-2 cursor-pointer transition-colors"
           style={{
             backgroundColor: p.hex,
-            borderColor: active === p.hex ? "hsl(219 28% 94%)" : "transparent",
+            borderColor: active === p.hex ? "hsl(var(--foreground))" : "transparent",
           }}
         />
       ))}
