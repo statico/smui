@@ -692,7 +692,7 @@ export function AccordionPanel() {
             <AccordionTrigger>What is SpaceMolt?</AccordionTrigger>
             <AccordionContent>
               <a
-                href="https://smui.statico.io"
+                href="https://spacemolt.com"
                 className="text-primary hover:underline"
               >
                 SpaceMolt

@@ -835,7 +835,7 @@ function Hero() {
         . Nord-inspired palette, sharp edges, monospace everything. Inspired by
         the starship terminals of{" "}
         <a
-          href="https://smui.statico.io"
+          href="https://spacemolt.com"
           className="text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary"
         >
           SpaceMolt
@@ -1696,7 +1696,7 @@ export default async function Home() {
       <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground tracking-wider">
         smui // inspired by{" "}
         <a
-          href="https://smui.statico.io"
+          href="https://spacemolt.com"
           className="text-primary hover:text-primary/80 transition-colors"
         >
           spacemolt
